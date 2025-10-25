@@ -1,0 +1,9 @@
+/* Importazione Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Stili personalizzati globali */
+body {
+  @apply font-sans antialiased;
+}
