@@ -1,0 +1,44 @@
+Sei un frontend developer esperto in Vue 3, HTML5 e CSS3.  
+Voglio che tu generi **da zero** l’interfaccia grafica completa per una **pagina web in Vue.js** dedicata al “Report di sostenibilità di un’impresa del settore primario”.
+
+### Requisiti funzionali:
+- La pagina deve presentare:
+  1. Un **header** con logo, titolo e breve sottotitolo.
+  2. Una **sezione introduttiva** “Chi siamo” con testo descrittivo sull’azienda.
+  3. Una **sezione centrale** “Report di sostenibilità” con card per i vari anni (es. 2024, 2023) contenenti titolo, descrizione e pulsante per scaricare il PDF.
+  4. Una **sezione contatti** con form (nome, email, messaggio, pulsante “Invia”).
+  5. Un **footer** con diritti d’autore e link legali.
+
+### Requisiti tecnici:
+- Usa **Vue 3 con Composition API**.
+- Nessun backend: tutto statico.
+- Organizza i componenti in cartelle chiare (`components/` e `views/`).
+- Il CSS deve essere **responsive** e **accessibile** (contrasto alto, label associate, focus visibile).
+- Usa **TailwindCSS** o uno stile semplice inline se non disponibile.
+- Il form non deve inviare realmente i dati ma deve avere la logica di base con `v-model` e `@submit.prevent`.
+- Inserisci **commenti esplicativi** nel codice (per uno studente che sta imparando Vue).
+- Inserisci placeholder per logo e PDF (es. `/assets/logo.png`, `/reports/report-2024.pdf`).
+
+### Obiettivo:
+Genera tutto il necessario per una prima versione funzionante:
+- Il file principale `App.vue`
+- I componenti (es. `Header.vue`, `IntroSection.vue`, `ReportSection.vue`, `ContactSection.vue`, `Footer.vue`)
+- Il file `main.js`
+- Un esempio di CSS base o Tailwind classes
+- Un testo dimostrativo coerente (placeholder descrittivi, non reali)
+
+La struttura finale del progetto dovrebbe essere:
+
+src/
+├─ assets/
+│  └─ logo.png
+├─ components/
+│  ├─ Header.vue
+│  ├─ IntroSection.vue
+│  ├─ ReportSection.vue
+│  ├─ ContactSection.vue
+│  └─ Footer.vue
+├─ App.vue
+└─ main.js
+
+Mostrami il codice completo, pronto da copiare in un progetto Vue 3 standard creato con Vite.
