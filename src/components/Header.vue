@@ -7,7 +7,7 @@
         <div class="flex items-center space-x-4">
           <!-- Logo dell'azienda (placeholder) -->
           <img 
-            src="/assets/logo.png" 
+            src="/assets/logo.svg" 
             alt="Logo Azienda" 
             class="h-16 w-16 object-contain bg-white rounded-full p-2"
             @error="handleImageError"
