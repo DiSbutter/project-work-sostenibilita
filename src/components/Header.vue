@@ -1,62 +1,213 @@
 <template>
-  <!-- Header principale del sito -->
-  <header class="bg-primary text-white shadow-lg">
-    <div class="container mx-auto px-4 py-6">
+  <!-- Header principale del sito con navigazione sticky -->
+  <!-- Questo header rimane visibile durante lo scroll per facilitare la navigazione -->
+  <header 
+    ref="header"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    :class="isScrolled ? 'bg-white shadow-lg text-gray-800' : 'bg-transparent text-white'"
+  >
+    <div class="container mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
-        <!-- Logo e titolo -->
-        <div class="flex items-center space-x-4">
+        <!-- Logo e titolo (cliccabile per tornare alla home) -->
+        <a href="#home" class="flex items-center space-x-4 hover:opacity-80 transition-opacity">
           <!-- Logo dell'azienda (placeholder) -->
-          <img 
-            src="/assets/logo.svg" 
-            alt="Logo Azienda" 
-            class="h-16 w-16 object-contain bg-white rounded-full p-2"
-            @error="handleImageError"
-          />
+          <div class="h-12 w-12 bg-white rounded-full p-2 flex items-center justify-center shadow-md">
+            <span class="text-2xl font-bold text-primary">🌱</span>
+          </div>
           <!-- Titolo e sottotitolo -->
           <div>
-            <h1 class="text-2xl md:text-3xl font-bold">
+            <h1 class="text-xl md:text-2xl font-bold transition-colors" :class="isScrolled ? 'text-primary' : 'text-white'">
               AgriBio Sostenibile
             </h1>
-            <p class="text-sm md:text-base text-green-100">
+            <p class="text-xs md:text-sm transition-colors" :class="isScrolled ? 'text-gray-600' : 'text-green-100'">
               Coltivare il futuro, rispettare la terra
             </p>
           </div>
-        </div>
+        </a>
         
-        <!-- Menu di navigazione (opzionale per future espansioni) -->
+        <!-- Menu di navigazione desktop -->
         <nav class="hidden md:block">
-          <ul class="flex space-x-6">
+          <ul class="flex space-x-8">
             <li>
-              <a href="#chi-siamo" class="hover:text-green-200 transition-colors">
+              <a 
+                href="#home" 
+                class="font-medium hover:text-primary transition-colors duration-200"
+                :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#chi-siamo" 
+                class="font-medium hover:text-primary transition-colors duration-200"
+                :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+              >
                 Chi Siamo
               </a>
             </li>
             <li>
-              <a href="#report" class="hover:text-green-200 transition-colors">
+              <a 
+                href="#statistiche" 
+                class="font-medium hover:text-primary transition-colors duration-200"
+                :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+              >
+                Risultati
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#report" 
+                class="font-medium hover:text-primary transition-colors duration-200"
+                :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+              >
                 Report
               </a>
             </li>
             <li>
-              <a href="#contatti" class="hover:text-green-200 transition-colors">
+              <a 
+                href="#contatti" 
+                class="font-medium hover:text-primary transition-colors duration-200"
+                :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+              >
                 Contatti
               </a>
             </li>
           </ul>
         </nav>
+        
+        <!-- Menu mobile button -->
+        <button 
+          @click="toggleMobileMenu"
+          class="md:hidden p-2 rounded-lg transition-colors"
+          :class="isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'"
+          aria-label="Menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Menu mobile -->
+      <div 
+        v-if="mobileMenuOpen"
+        class="md:hidden mt-4 pb-4 border-t pt-4 animate-slide-up"
+        :class="isScrolled ? 'border-gray-200' : 'border-white/20'"
+      >
+        <ul class="space-y-3">
+          <li>
+            <a 
+              href="#home" 
+              @click="closeMobileMenu"
+              class="block py-2 font-medium transition-colors"
+              :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#chi-siamo" 
+              @click="closeMobileMenu"
+              class="block py-2 font-medium transition-colors"
+              :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+            >
+              Chi Siamo
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#statistiche" 
+              @click="closeMobileMenu"
+              class="block py-2 font-medium transition-colors"
+              :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+            >
+              Risultati
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#report" 
+              @click="closeMobileMenu"
+              class="block py-2 font-medium transition-colors"
+              :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+            >
+              Report
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#contatti" 
+              @click="closeMobileMenu"
+              class="block py-2 font-medium transition-colors"
+              :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+            >
+              Contatti
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </header>
 </template>
 
 <script setup>
-// Gestione errore immagine logo
-// Se l'immagine non viene trovata, sostituiamo con un placeholder SVG
-const handleImageError = (event) => {
-  event.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"%3E%3Crect width="64" height="64" fill="%232E7D32"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="24" fill="white"%3EAB%3C/text%3E%3C/svg%3E'
+import { ref, onMounted, onUnmounted } from 'vue'
+
+// Stato per tracciare lo scroll e cambiare lo stile dell'header
+const isScrolled = ref(false)
+const mobileMenuOpen = ref(false)
+const header = ref(null)
+
+// Funzione per gestire lo scroll
+const handleScroll = () => {
+  // Cambia lo stile dell'header quando si scrolla oltre 100px
+  isScrolled.value = window.scrollY > 100
 }
+
+// Funzione per aprire/chiudere il menu mobile
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+}
+
+// Funzione per chiudere il menu mobile
+const closeMobileMenu = () => {
+  mobileMenuOpen.value = false
+}
+
+// Aggiungi event listener per lo scroll
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  handleScroll() // Controlla lo stato iniziale
+})
+
+// Rimuovi event listener quando il componente viene smontato
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style scoped>
-/* Stili aggiuntivi se necessari */
-/* La maggior parte degli stili è gestita da Tailwind */
+/* Animazione per il menu mobile */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Transizione smooth per i cambi di stile dell'header */
+header {
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
 </style>

@@ -6,4 +6,42 @@
 /* Stili personalizzati globali */
 body {
   @apply font-sans antialiased;
+  scroll-behavior: smooth;
+}
+
+/* Smooth scroll per anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Stili personalizzati per scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E7D32;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1B5E20;
+}
+
+/* Animazioni personalizzate */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
