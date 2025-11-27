@@ -1,20 +1,35 @@
+/* ============================================= */
+/* Gruppo CAVIRO - Stili Globali */
+/* Brand Manual compliant: Colori Pantone P 7645C e P 209C */
+/* Tipografia: Merriweather (titoli) + Lato (corpo) */
+/* Data: Novembre 2025 */
+/* ============================================= */
+
 /* Importazione Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Stili personalizzati globali */
-body {
-  @apply font-sans antialiased;
-  scroll-behavior: smooth;
+/* Layer base: Configurazione globale con font brand CAVIRO */
+@layer base {
+  /* Applicazione del font Lato come font principale del corpo */
+  body {
+    @apply font-body antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  /* Tutti i titoli usano Merriweather come da linee guida brand */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+  
+  /* Smooth scroll per anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-/* Smooth scroll per anchor links */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Stili personalizzati per scrollbar */
+/* Stili personalizzati per scrollbar con colori brand CAVIRO */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -23,13 +38,14 @@ html {
   background: #f1f1f1;
 }
 
+/* Scrollbar thumb con colore primario CAVIRO (bordeaux) */
 ::-webkit-scrollbar-thumb {
-  background: #2E7D32;
+  background: #8B1538;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1B5E20;
+  background: #AB4660;
 }
 
 /* Animazioni personalizzate */

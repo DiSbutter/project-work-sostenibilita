@@ -1,44 +1,46 @@
 <template>
-  <!-- Sezione "Contatti" migliorata -->
-  <!-- Questa sezione permette agli utenti di contattare l'azienda per informazioni sui report -->
-  <section id="contatti" class="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+  <!-- ============================================= -->
+  <!-- Sezione Contatti - Gruppo CAVIRO -->
+  <!-- Form di contatto e informazioni -->
+  <!-- Brand compliant con colori P 7645C e P 209C -->
+  <!-- ============================================= -->
+  <section id="contatti" class="py-20 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
     <!-- Pattern decorativo di sfondo -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-green-50 rounded-full blur-3xl opacity-30 -mr-48 -mt-48"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-light rounded-full blur-3xl opacity-30 -mr-48 -mt-48"></div>
     
     <div class="container mx-auto px-4 max-w-5xl relative z-10">
       <!-- Titolo della sezione -->
       <div class="text-center mb-16 animate-fade-in">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-secondary mb-4">
           Contattaci
         </h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4"></div>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
+        <p class="text-xl text-text-secondary max-w-2xl mx-auto font-body">
           Hai domande sul nostro impegno per la sostenibilità? 
-          Siamo qui per rispondere alle tue curiosità!
+          Il team CAVIRO è a tua disposizione
         </p>
       </div>
       
       <!-- Layout a due colonne -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <!-- Form di contatto -->
-        <div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-green-100">
-          <!-- @submit.prevent impedisce il reload della pagina -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-light">
           <form @submit.prevent="handleSubmit" class="space-y-6">
             <!-- Campo Nome -->
             <div>
               <label 
                 for="name" 
-                class="block text-sm font-semibold text-gray-700 mb-2"
+                class="block text-sm font-body font-bold text-secondary mb-2"
               >
-                Nome *
+                Nome Completo *
               </label>
               <input
                 id="name"
                 v-model="formData.name"
                 type="text"
                 required
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all hover:border-green-400"
-                placeholder="Il tuo nome completo"
+                class="w-full px-4 py-3 border-2 border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all hover:border-accent font-body"
+                placeholder="Il tuo nome"
               />
             </div>
             
@@ -46,7 +48,7 @@
             <div>
               <label 
                 for="email" 
-                class="block text-sm font-semibold text-gray-700 mb-2"
+                class="block text-sm font-body font-bold text-secondary mb-2"
               >
                 Email *
               </label>
@@ -55,8 +57,25 @@
                 v-model="formData.email"
                 type="email"
                 required
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all hover:border-green-400"
+                class="w-full px-4 py-3 border-2 border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all hover:border-accent font-body"
                 placeholder="tua.email@esempio.com"
+              />
+            </div>
+            
+            <!-- Campo Azienda -->
+            <div>
+              <label 
+                for="company" 
+                class="block text-sm font-body font-bold text-secondary mb-2"
+              >
+                Azienda/Organizzazione
+              </label>
+              <input
+                id="company"
+                v-model="formData.company"
+                type="text"
+                class="w-full px-4 py-3 border-2 border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all hover:border-accent font-body"
+                placeholder="Nome azienda (opzionale)"
               />
             </div>
             
@@ -64,7 +83,7 @@
             <div>
               <label 
                 for="message" 
-                class="block text-sm font-semibold text-gray-700 mb-2"
+                class="block text-sm font-body font-bold text-secondary mb-2"
               >
                 Messaggio *
               </label>
@@ -73,95 +92,115 @@
                 v-model="formData.message"
                 required
                 rows="6"
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all resize-none hover:border-green-400"
+                class="w-full px-4 py-3 border-2 border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all resize-none hover:border-accent font-body"
                 placeholder="Scrivi qui il tuo messaggio..."
               ></textarea>
             </div>
             
-            <!-- Messaggio di conferma migliorato -->
+            <!-- Messaggio di errore -->
             <div 
-              v-if="showConfirmation"
-              class="bg-gradient-to-r from-green-50 to-light border-2 border-primary text-green-800 px-6 py-4 rounded-xl animate-slide-up"
+              v-if="submitError"
+              class="bg-red-50 border-2 border-red-500 text-red-700 px-6 py-4 rounded-lg animate-slide-up"
             >
               <div class="flex items-center space-x-3">
-                <span class="text-2xl">✓</span>
-                <div>
-                  <p class="font-semibold">Messaggio inviato con successo!</p>
-                  <p class="text-sm">Ti risponderemo al più presto.</p>
+                <ExclamationTriangleIcon class="w-8 h-8 flex-shrink-0" />
+                <div class="font-body">
+                  <p class="font-bold">Errore durante l'invio</p>
+                  <p class="text-sm">Riprova più tardi o contattaci direttamente via email.</p>
                 </div>
               </div>
             </div>
             
-            <!-- Pulsante di invio migliorato -->
+            <!-- Messaggio di conferma -->
+            <div 
+              v-if="showConfirmation"
+              class="bg-gradient-to-r from-light to-accent/20 border-2 border-primary text-primary px-6 py-4 rounded-lg animate-slide-up"
+            >
+              <div class="flex items-center space-x-3">
+                <CheckCircleIcon class="w-8 h-8 flex-shrink-0" />
+                <div class="font-body">
+                  <p class="font-bold">Messaggio inviato con successo!</p>
+                  <p class="text-sm text-secondary">Ti risponderemo al più presto.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Pulsante di invio -->
             <button
               type="submit"
-              class="w-full bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-lg hover:shadow-xl"
+              :disabled="isSubmitting"
+              class="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white font-body font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               <span class="flex items-center justify-center space-x-2">
-                <span>📧</span>
-                <span>Invia Messaggio</span>
+                <EnvelopeIcon v-if="!isSubmitting" class="w-5 h-5" />
+                <ArrowPathIcon v-else class="w-5 h-5 animate-spin" />
+                <span>{{ isSubmitting ? 'Invio in corso...' : 'Invia Messaggio' }}</span>
               </span>
             </button>
           </form>
         </div>
         
-        <!-- Informazioni di contatto alternative migliorate -->
+        <!-- Informazioni di contatto -->
         <div class="space-y-6">
-          <!-- Card informazioni -->
-          <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 text-white shadow-xl">
-            <h3 class="text-2xl font-bold mb-6">Informazioni di Contatto</h3>
-            <div class="space-y-6">
+          <!-- Card informazioni principali -->
+          <div class="bg-gradient-to-br from-primary to-accent rounded-2xl p-8 text-white shadow-xl">
+            <h3 class="text-2xl font-heading font-bold mb-6">Informazioni di Contatto</h3>
+            <div class="space-y-6 font-body">
+              <!-- Sede legale -->
               <div class="flex items-start space-x-4">
-                <div class="text-3xl">📍</div>
+                <BuildingOfficeIcon class="w-8 h-8 flex-shrink-0" />
                 <div>
-                  <h4 class="font-semibold mb-1">Indirizzo</h4>
-                  <p class="text-green-100">
-                    Via delle Colline 123<br>
-                    50100 Firenze, Italia
+                  <h4 class="font-bold mb-1">Sede Legale</h4>
+                  <p class="text-neutral-50">
+                    Via Convertite 12<br>
+                    48018 Faenza (RA), Italia
                   </p>
                 </div>
               </div>
               
+              <!-- Telefono -->
               <div class="flex items-start space-x-4">
-                <div class="text-3xl">📞</div>
+                <PhoneIcon class="w-8 h-8 flex-shrink-0" />
                 <div>
-                  <h4 class="font-semibold mb-1">Telefono</h4>
-                  <p class="text-green-100">
-                    +39 055 1234567<br>
-                    <span class="text-sm">Lun-Ven 9:00-18:00</span>
+                  <h4 class="font-bold mb-1">Telefono</h4>
+                  <p class="text-neutral-50">
+                    +39 0546 642111<br>
+                    <span class="text-sm">Lun-Ven 8:30-12:30 / 14:00-18:00</span>
                   </p>
                 </div>
               </div>
               
+              <!-- Email -->
               <div class="flex items-start space-x-4">
-                <div class="text-3xl">✉️</div>
+                <EnvelopeIcon class="w-8 h-8 flex-shrink-0" />
                 <div>
-                  <h4 class="font-semibold mb-1">Email</h4>
-                  <p class="text-green-100">
-                    info@agribio.it<br>
-                    sostenibilita@agribio.it
+                  <h4 class="font-bold mb-1">Email</h4>
+                  <p class="text-neutral-50">
+                    info@gruppocaviro.com<br>
+                    sostenibilita@gruppocaviro.com
                   </p>
                 </div>
               </div>
             </div>
           </div>
           
-          <!-- Card orari -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-green-100">
-            <h3 class="text-xl font-bold text-gray-800 mb-4">Orari di Apertura</h3>
-            <div class="space-y-2 text-gray-600">
+          <!-- Card orari e note -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-light">
+            <h3 class="text-xl font-heading font-bold text-secondary mb-4">Orari Uffici</h3>
+            <div class="space-y-2 text-text-secondary font-body">
               <div class="flex justify-between">
                 <span>Lunedì - Venerdì</span>
-                <span class="font-semibold">9:00 - 18:00</span>
+                <span class="font-bold">8:30 - 18:00</span>
               </div>
               <div class="flex justify-between">
-                <span>Sabato</span>
-                <span class="font-semibold">9:00 - 13:00</span>
+                <span>Sabato - Domenica</span>
+                <span class="font-bold text-neutral-400">Chiuso</span>
               </div>
-              <div class="flex justify-between">
-                <span>Domenica</span>
-                <span class="font-semibold text-gray-400">Chiuso</span>
-              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-neutral-200">
+              <p class="text-sm text-text-secondary font-body">
+                <strong class="text-primary">Nota:</strong> Per visite in sede è richiesto appuntamento.
+              </p>
             </div>
           </div>
         </div>
@@ -172,56 +211,82 @@
 
 <script setup>
 import { ref } from 'vue'
+import { 
+  CheckCircleIcon, 
+  ExclamationTriangleIcon,
+  EnvelopeIcon,
+  ArrowPathIcon,
+  BuildingOfficeIcon,
+  PhoneIcon
+} from '@heroicons/vue/24/solid'
+
+// ============================================= //
+// ContactSection - Logica form contatto      //
+// Gestione stato e invio dati               //
+// ============================================= //
 
 // Oggetto reattivo per i dati del form
-// v-model sincronizza automaticamente questi valori con gli input
 const formData = ref({
   name: '',
   email: '',
+  company: '',
   message: ''
 })
 
 // Stato per mostrare il messaggio di conferma
 const showConfirmation = ref(false)
 
+// Stato per gestire loading e errori
+const isSubmitting = ref(false)
+const submitError = ref(false)
+
 // Funzione che gestisce l'invio del form
-const handleSubmit = () => {
-  // In un'applicazione reale, qui invieremmo i dati al backend
-  // utilizzando fetch o axios per una chiamata API
-  // Per ora, simuliamo l'invio mostrando un messaggio di conferma
+const handleSubmit = async () => {
+  isSubmitting.value = true
+  submitError.value = false
   
-  console.log('Dati form inviati:', formData.value)
-  
-  // Esempio di chiamata API (commentato per demo):
-  /*
-  fetch('/api/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData.value)
-  })
-  .then(response => response.json())
-  .then(data => {
-    showConfirmation.value = true
-    // Reset form dopo conferma
+  try {
+    // Prepara i dati per FormSubmit
+    const formBody = new FormData()
+    formBody.append('name', formData.value.name)
+    formBody.append('email', formData.value.email)
+    formBody.append('company', formData.value.company || 'Non specificata')
+    formBody.append('message', formData.value.message)
+    formBody.append('_subject', `Nuovo contatto da ${formData.value.name}`)
+    formBody.append('_captcha', 'false') // Disabilita captcha per test
+    formBody.append('_template', 'table') // Formato tabella per la email
+    
+    // Invio a FormSubmit
+    const response = await fetch('https://formsubmit.co/test00016formpw@yopmail.com', {
+      method: 'POST',
+      body: formBody,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    
+    if (response.ok) {
+      console.log('[SUCCESS] Email inviata con successo!')
+      showConfirmation.value = true
+      
+      // Reset del form dopo 5 secondi
+      setTimeout(() => {
+        resetForm()
+      }, 5000)
+    } else {
+      throw new Error('Errore durante l\'invio')
+    }
+  } catch (error) {
+    console.error('❌ Errore invio email:', error)
+    submitError.value = true
+    
+    // Nascondi messaggio errore dopo 5 secondi
     setTimeout(() => {
-      resetForm()
+      submitError.value = false
     }, 5000)
-  })
-  .catch(error => {
-    console.error('Errore:', error)
-    // Mostrare messaggio di errore
-  })
-  */
-  
-  // Mostro il messaggio di conferma
-  showConfirmation.value = true
-  
-  // Reset del form dopo 5 secondi (tempo aumentato per migliore UX)
-  setTimeout(() => {
-    resetForm()
-  }, 5000)
+  } finally {
+    isSubmitting.value = false
+  }
 }
 
 // Funzione per resettare il form
@@ -229,6 +294,7 @@ const resetForm = () => {
   formData.value = {
     name: '',
     email: '',
+    company: '',
     message: ''
   }
   showConfirmation.value = false
@@ -236,6 +302,11 @@ const resetForm = () => {
 </script>
 
 <style scoped>
+/* ============================================= */
+/* Stili ContactSection - Brand CAVIRO */
+/* Animazioni e interazioni form */
+/* ============================================= */
+
 /* Animazione per il messaggio di conferma */
 @keyframes slideUp {
   from {

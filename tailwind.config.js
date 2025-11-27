@@ -6,12 +6,36 @@ export default {
   ],
   theme: {
     extend: {
+      // Colori brand Gruppo CAVIRO - Basati su Pantone P 7645C e P 209C
       colors: {
-        primary: '#2E7D32',
-        secondary: '#558B2F',
-        accent: '#66BB6A',
-        dark: '#1B5E20',
-        light: '#C8E6C9',
+        // Colore principale: Pantone P 209C - Bordeaux/Vino
+        primary: '#8B1538',
+        // Colore secondario: Pantone P 7645C - Grigio antracite
+        secondary: '#2B2B2B',
+        // Variante P 209C al 65% - Bordeaux chiaro
+        accent: '#AB4660',
+        // Variante P 209C al 30% - Rosa tenue
+        light: '#D9A8B5',
+        // Nero 40% per testi secondari
+        'text-secondary': '#666666',
+        // Colori neutri aggiuntivi per coerenza
+        neutral: {
+          50: '#F8F8F8',
+          100: '#E8E8E8',
+          200: '#D1D1D1',
+          300: '#B4B4B4',
+          400: '#666666',
+          500: '#4A4A4A',
+          600: '#2B2B2B',
+          700: '#1A1A1A',
+          800: '#0D0D0D',
+          900: '#000000',
+        },
+      },
+      // Font family: Merriweather per titoli, Lato per corpo
+      fontFamily: {
+        'heading': ['Merriweather', 'serif'],
+        'body': ['Lato', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',

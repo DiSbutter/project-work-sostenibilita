@@ -1,70 +1,78 @@
 <template>
-  <!-- Sezione "Chi siamo" con design migliorato -->
-  <!-- Questa sezione presenta l'azienda in modo coinvolgente e professionale -->
+  <!-- ============================================= -->
+  <!-- Sezione "Il Gruppo CAVIRO" -->
+  <!-- Brand compliant: Storytelling autentico del Gruppo -->
+  <!-- Colori, font e layout secondo brand manual -->
+  <!-- ============================================= -->
   <section id="chi-siamo" class="py-20 bg-white relative overflow-hidden">
-    <!-- Pattern decorativo di sfondo -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-green-50 rounded-full blur-3xl opacity-50 -mr-48 -mt-48"></div>
-    <div class="absolute bottom-0 left-0 w-96 h-96 bg-light rounded-full blur-3xl opacity-50 -ml-48 -mb-48"></div>
+    <!-- Pattern decorativo di sfondo con colori brand -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-light rounded-full blur-3xl opacity-30 -mr-48 -mt-48"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-light rounded-full blur-3xl opacity-30 -ml-48 -mb-48"></div>
     
     <div class="container mx-auto px-4 max-w-6xl relative z-10">
-      <!-- Titolo della sezione -->
+      <!-- Titolo della sezione con font Merriweather -->
       <div class="text-center mb-16 animate-fade-in">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-          Chi Siamo
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-secondary mb-4">
+          Il Gruppo CAVIRO
         </h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+        <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+        <p class="text-xl text-text-secondary mt-4 font-body max-w-2xl mx-auto">
+          La più grande cooperativa vitivinicola d'Italia
+        </p>
       </div>
       
       <!-- Contenuto principale con layout a due colonne -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-        <!-- Testo descrittivo -->
-        <div class="prose prose-lg text-gray-600 leading-relaxed animate-slide-in-left">
+        <!-- Testo descrittivo con font Lato -->
+        <div class="prose prose-lg text-neutral-600 leading-relaxed animate-slide-in-left font-body">
           <p class="mb-6 text-lg">
-            <strong class="text-primary text-xl">AgriBio Sostenibile</strong> è un'azienda agricola a conduzione familiare 
-            situata nelle colline toscane, specializzata nella produzione biologica di olio 
-            d'oliva extravergine e vino di qualità superiore.
+            <strong class="text-primary text-xl font-bold">Gruppo CAVIRO</strong> è la principale cooperativa 
+            vitivinicola italiana, punto di riferimento per oltre 14.900 viticoltori soci 
+            che lavorano su oltre 34.100 ettari di vigneti in 7 regioni italiane, rappresentando 
+            oltre l'8,5% della produzione nazionale di uva.
           </p>
           
           <p class="mb-6">
-            Da tre generazioni la nostra famiglia coltiva queste terre con passione e rispetto, 
-            adottando pratiche agricole sostenibili che preservano la biodiversità e la fertilità 
-            del suolo per le generazioni future.
+            Fondata nel 1966 a Faenza, CAVIRO rappresenta un modello unico di <strong class="text-primary">economia circolare</strong> 
+            applicata al settore vitivinicolo: ogni sottoprodotto della vinificazione viene 
+            trasformato in nuove risorse, dal bioetanolo all'energia rinnovabile, dai fertilizzanti 
+            ai prodotti nobili come alcol, acido tartarico e biocarburanti.
           </p>
           
           <p class="mb-6">
-            Il nostro impegno per la sostenibilità va oltre la semplice certificazione biologica: 
-            utilizziamo energia rinnovabile, riduciamo gli sprechi d'acqua attraverso sistemi di 
-            irrigazione intelligenti e promuoviamo l'economia circolare riutilizzando tutti i 
-            sottoprodotti della lavorazione.
+            Con un fatturato consolidato di 385 milioni di euro (2023-2024), il Gruppo è presente sul mercato 
+            con brand storici come <strong class="text-primary">Tavernello</strong>, uno dei vini più venduti al mondo, 
+            e sviluppa prodotti innovativi nel rispetto della sostenibilità ambientale e sociale, 
+            investendo oltre 12 milioni di euro in progetti ESG.
           </p>
           
           <p class="mb-6">
-            Ogni anno pubblichiamo il nostro <strong class="text-primary">Report di Sostenibilità</strong> per 
-            condividere in modo trasparente i nostri progressi, le sfide affrontate e gli 
-            obiettivi futuri. Crediamo che la trasparenza sia fondamentale per costruire 
-            fiducia con i nostri clienti, partner e la comunità locale.
+            La <strong class="text-primary">trasparenza</strong> è un valore fondante: ogni anno pubblichiamo 
+            il Bilancio di Sostenibilità per condividere con stakeholder, soci e comunità i nostri 
+            progressi verso gli obiettivi ESG (Environmental, Social, Governance) e gli impegni 
+            per un futuro sostenibile.
           </p>
         </div>
         
-        <!-- Immagine o card illustrativa -->
+        <!-- Card illustrativa con colori brand CAVIRO -->
         <div class="animate-slide-in-right">
-          <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 shadow-2xl text-white transform hover:scale-105 transition-transform duration-300">
+          <div class="bg-gradient-to-br from-primary to-accent rounded-2xl p-8 shadow-2xl text-white transform hover:scale-105 transition-transform duration-300">
             <div class="text-center">
-              <div class="text-6xl mb-6 animate-float">🌾</div>
-              <h3 class="text-2xl font-bold mb-4">La Nostra Missione</h3>
-              <p class="text-green-50 leading-relaxed mb-6">
-                Produrre alimenti di alta qualità rispettando l'ambiente, 
-                preservando le risorse naturali e valorizzando il territorio 
-                per le generazioni future.
+              <FireIcon class="w-16 h-16 mx-auto mb-6 animate-float" />
+              <h3 class="text-2xl font-heading font-bold mb-4">La Nostra Missione</h3>
+              <p class="text-neutral-50 leading-relaxed mb-6 font-body">
+                Valorizzare il lavoro dei viticoltori italiani, produrre vini di qualità 
+                e trasformare ogni risorsa in valore attraverso l'economia circolare, 
+                costruendo un futuro sostenibile per il territorio e le comunità.
               </p>
               <div class="grid grid-cols-2 gap-4 mt-8">
                 <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                  <div class="text-3xl font-bold">50+</div>
-                  <div class="text-sm text-green-100">Anni di Esperienza</div>
+                  <div class="text-3xl font-heading font-bold">14.900</div>
+                  <div class="text-sm text-neutral-100 font-body">Viticoltori Soci</div>
                 </div>
                 <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                  <div class="text-3xl font-bold">3</div>
-                  <div class="text-sm text-green-100">Generazioni</div>
+                  <div class="text-3xl font-heading font-bold">7</div>
+                  <div class="text-sm text-neutral-100 font-body">Regioni Italiane</div>
                 </div>
               </div>
             </div>
@@ -72,32 +80,35 @@
         </div>
       </div>
       
-      <!-- Valori chiave migliorati -->
+      <!-- Valori chiave con brand CAVIRO -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-        <div class="text-center p-8 bg-gradient-to-br from-green-50 to-light rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-green-100 hover:border-primary">
-          <div class="text-5xl mb-4 animate-pulse-slow">🌱</div>
-          <h3 class="font-bold text-xl text-gray-800 mb-3">Sostenibilità</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Pratiche agricole che rispettano l'ambiente e preservano 
-            le risorse per il futuro
+        <!-- Valore 1: Economia Circolare -->
+        <div class="text-center p-8 bg-gradient-to-br from-neutral-50 to-light rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-light hover:border-primary">
+          <ArrowPathIcon class="w-12 h-12 mx-auto mb-4 text-primary animate-pulse-slow" />
+          <h3 class="font-heading font-bold text-xl text-secondary mb-3">Economia Circolare</h3>
+          <p class="text-text-secondary leading-relaxed font-body">
+            Zero sprechi: ogni sottoprodotto diventa una nuova risorsa. 
+            Dal bioetanolo all'energia, dal compost ai cosmetici.
           </p>
         </div>
         
-        <div class="text-center p-8 bg-gradient-to-br from-green-50 to-light rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-green-100 hover:border-primary">
-          <div class="text-5xl mb-4 animate-pulse-slow" style="animation-delay: 0.2s">🤝</div>
-          <h3 class="font-bold text-xl text-gray-800 mb-3">Comunità</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Supporto all'economia locale e valorizzazione delle 
-            tradizioni del territorio
+        <!-- Valore 2: Cooperazione -->
+        <div class="text-center p-8 bg-gradient-to-br from-neutral-50 to-light rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-light hover:border-primary">
+          <UserGroupIcon class="w-12 h-12 mx-auto mb-4 text-primary animate-pulse-slow" style="animation-delay: 0.2s" />
+          <h3 class="font-heading font-bold text-xl text-secondary mb-3">Cooperazione</h3>
+          <p class="text-text-secondary leading-relaxed font-body">
+            Un modello unico che unisce 14.900 viticoltori in un progetto 
+            comune di valorizzazione del territorio e del lavoro agricolo.
           </p>
         </div>
         
-        <div class="text-center p-8 bg-gradient-to-br from-green-50 to-light rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-green-100 hover:border-primary">
-          <div class="text-5xl mb-4 animate-pulse-slow" style="animation-delay: 0.4s">✨</div>
-          <h3 class="font-bold text-xl text-gray-800 mb-3">Qualità</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Prodotti eccellenti dal campo alla tavola, frutto di 
-            passione e competenza
+        <!-- Valore 3: Innovazione -->
+        <div class="text-center p-8 bg-gradient-to-br from-neutral-50 to-light rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-light hover:border-primary">
+          <BeakerIcon class="w-12 h-12 mx-auto mb-4 text-primary animate-pulse-slow" style="animation-delay: 0.4s" />
+          <h3 class="font-heading font-bold text-xl text-secondary mb-3">Innovazione Sostenibile</h3>
+          <p class="text-text-secondary leading-relaxed font-body">
+            Ricerca continua per tecnologie pulite, processi efficienti 
+            e prodotti innovativi nel rispetto dell'ambiente.
           </p>
         </div>
       </div>
@@ -106,11 +117,26 @@
 </template>
 
 <script setup>
-// Questo componente è puramente presentazionale
-// Le animazioni sono gestite tramite classi CSS di Tailwind
+import { 
+  ArrowPathIcon, 
+  UserGroupIcon, 
+  BeakerIcon,
+  FireIcon
+} from '@heroicons/vue/24/solid'
+
+// ============================================= //
+// IntroSection - Logica componente           //
+// Componente puramente presentazionale       //
+// Animazioni gestite tramite Tailwind CSS   //
+// ============================================= //
 </script>
 
 <style scoped>
+/* ============================================= */
+/* Stili IntroSection - Brand CAVIRO */
+/* Animazioni e layout responsive */
+/* ============================================= */
+
 /* Stili personalizzati per la sezione prose */
 .prose p {
   text-align: justify;
@@ -145,5 +171,19 @@
 
 .animate-slide-in-right {
   animation: slideInRight 0.8s ease-out;
+}
+
+/* Animazione float per icona */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 </style>
