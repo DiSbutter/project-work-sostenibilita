@@ -103,7 +103,7 @@
               class="bg-red-50 border-2 border-red-500 text-red-700 px-6 py-4 rounded-lg animate-slide-up"
             >
               <div class="flex items-center space-x-3">
-                <span class="text-2xl">⚠️</span>
+                <ExclamationTriangleIcon class="w-8 h-8 flex-shrink-0" />
                 <div class="font-body">
                   <p class="font-bold">Errore durante l'invio</p>
                   <p class="text-sm">Riprova più tardi o contattaci direttamente via email.</p>
@@ -117,7 +117,7 @@
               class="bg-gradient-to-r from-light to-accent/20 border-2 border-primary text-primary px-6 py-4 rounded-lg animate-slide-up"
             >
               <div class="flex items-center space-x-3">
-                <span class="text-2xl">✓</span>
+                <CheckCircleIcon class="w-8 h-8 flex-shrink-0" />
                 <div class="font-body">
                   <p class="font-bold">Messaggio inviato con successo!</p>
                   <p class="text-sm text-secondary">Ti risponderemo al più presto.</p>
@@ -132,8 +132,8 @@
               class="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white font-body font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               <span class="flex items-center justify-center space-x-2">
-                <span v-if="!isSubmitting">📧</span>
-                <span v-else class="animate-spin">⏳</span>
+                <EnvelopeIcon v-if="!isSubmitting" class="w-5 h-5" />
+                <ArrowPathIcon v-else class="w-5 h-5 animate-spin" />
                 <span>{{ isSubmitting ? 'Invio in corso...' : 'Invia Messaggio' }}</span>
               </span>
             </button>
@@ -148,7 +148,7 @@
             <div class="space-y-6 font-body">
               <!-- Sede legale -->
               <div class="flex items-start space-x-4">
-                <div class="text-3xl">🏢</div>
+                <BuildingOfficeIcon class="w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 class="font-bold mb-1">Sede Legale</h4>
                   <p class="text-neutral-50">
@@ -160,7 +160,7 @@
               
               <!-- Telefono -->
               <div class="flex items-start space-x-4">
-                <div class="text-3xl">📞</div>
+                <PhoneIcon class="w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 class="font-bold mb-1">Telefono</h4>
                   <p class="text-neutral-50">
@@ -172,7 +172,7 @@
               
               <!-- Email -->
               <div class="flex items-start space-x-4">
-                <div class="text-3xl">✉️</div>
+                <EnvelopeIcon class="w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 class="font-bold mb-1">Email</h4>
                   <p class="text-neutral-50">
@@ -211,6 +211,14 @@
 
 <script setup>
 import { ref } from 'vue'
+import { 
+  CheckCircleIcon, 
+  ExclamationTriangleIcon,
+  EnvelopeIcon,
+  ArrowPathIcon,
+  BuildingOfficeIcon,
+  PhoneIcon
+} from '@heroicons/vue/24/solid'
 
 // ============================================= //
 // ContactSection - Logica form contatto      //
@@ -258,7 +266,7 @@ const handleSubmit = async () => {
     })
     
     if (response.ok) {
-      console.log('📧 Email inviata con successo!')
+      console.log('[SUCCESS] Email inviata con successo!')
       showConfirmation.value = true
       
       // Reset del form dopo 5 secondi

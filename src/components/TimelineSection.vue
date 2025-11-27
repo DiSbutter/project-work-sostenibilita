@@ -55,9 +55,10 @@
                 <span 
                   v-for="(achievement, i) in event.achievements" 
                   :key="i"
-                  class="inline-block bg-light text-primary text-sm font-body font-semibold px-3 py-1 rounded-full"
+                  class="inline-flex items-center gap-1 bg-light text-primary text-sm font-body font-semibold px-3 py-1 rounded-full"
                 >
-                  ✓ {{ achievement }}
+                  <CheckCircleIcon class="w-4 h-4 flex-shrink-0" />
+                  <span>{{ achievement }}</span>
                 </span>
               </div>
             </div>
@@ -77,9 +78,10 @@
       <div class="text-center mt-16">
         <a 
           href="#report"
-          class="inline-block bg-primary text-white px-8 py-4 rounded-lg font-body font-bold text-lg hover:bg-accent transition-all duration-300 transform hover:scale-105 shadow-lg"
+          class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-body font-bold text-lg hover:bg-accent transition-all duration-300 transform hover:scale-105 shadow-lg"
         >
-          📊 Scopri i Bilanci di Sostenibilità
+          <ChartBarIcon class="w-6 h-6" />
+          <span>Scopri i Bilanci di Sostenibilità</span>
         </a>
       </div>
     </div>
@@ -88,6 +90,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { CheckCircleIcon, ChartBarIcon } from '@heroicons/vue/24/solid'
 
 // ============================================= //
 // Dati reattivi per la timeline CAVIRO       //

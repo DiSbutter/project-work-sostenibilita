@@ -41,15 +41,17 @@
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <a 
             href="#report"
-            class="bg-primary text-white px-8 py-4 rounded-lg font-body font-bold text-lg hover:bg-accent transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-body font-bold text-lg hover:bg-accent transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
-            📊 Scarica il Bilancio di Sostenibilità
+            <ChartBarIcon class="w-6 h-6" />
+            <span>Scarica il Bilancio di Sostenibilità</span>
           </a>
           <a 
             href="#chi-siamo"
-            class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-body font-bold text-lg hover:bg-white hover:text-secondary transition-all duration-300 transform hover:scale-105"
+            class="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-body font-bold text-lg hover:bg-white hover:text-secondary transition-all duration-300 transform hover:scale-105"
           >
-            🏭 Scopri il Gruppo CAVIRO
+            <BuildingOfficeIcon class="w-6 h-6" />
+            <span>Scopri il Gruppo CAVIRO</span>
           </a>
         </div>
         
@@ -93,6 +95,8 @@
 </template>
 
 <script setup>
+import { ChartBarIcon, BuildingOfficeIcon } from '@heroicons/vue/24/solid'
+
 // ============================================= //
 // Hero Section - Logica componente            //
 // Componente puramente presentazionale        //

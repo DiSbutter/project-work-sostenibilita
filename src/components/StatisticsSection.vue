@@ -27,8 +27,12 @@
           :style="{ animationDelay: `${index * 0.1}s` }"
         >
           <!-- Icona -->
-          <div class="text-5xl mb-4 animate-pulse-slow" :style="{ color: stat.iconColor }">
-            {{ stat.icon }}
+          <div class="mb-4 animate-pulse-slow">
+            <component 
+              :is="iconMap[stat.icon]" 
+              class="w-12 h-12 mx-auto" 
+              :style="{ color: stat.iconColor }"
+            />
           </div>
           
           <!-- Valore principale -->
@@ -77,7 +81,10 @@
               :key="cert.name"
               class="text-center p-4 bg-light rounded-lg hover:bg-accent/20 transition-colors"
             >
-              <div class="text-3xl mb-2">{{ cert.icon }}</div>
+              <component 
+                :is="iconMap[cert.icon]" 
+                class="w-8 h-8 mx-auto mb-2 text-primary" 
+              />
               <div class="text-sm font-body font-semibold text-secondary">{{ cert.name }}</div>
             </div>
           </div>
@@ -89,6 +96,25 @@
 
 <script setup>
 import { ref } from 'vue'
+import { 
+  ArrowPathIcon, 
+  BoltIcon,
+  GlobeAltIcon,
+  TrophyIcon,
+  SparklesIcon,
+  FireIcon
+} from '@heroicons/vue/24/solid'
+
+// Mappa delle icone per uso dinamico
+const iconMap = {
+  recycle: ArrowPathIcon,
+  grape: FireIcon, // Usiamo FireIcon per rappresentare energia/viticoltura
+  bolt: BoltIcon,
+  globe: GlobeAltIcon,
+  leaf: SparklesIcon,
+  sparkles: SparklesIcon,
+  trophy: TrophyIcon
+}
 
 // ============================================= //
 // Dati reattivi per le statistiche CAVIRO     //
@@ -97,7 +123,7 @@ import { ref } from 'vue'
 
 const statistics = ref([
   {
-    icon: '♻️',
+    icon: 'recycle',
     value: '100%',
     label: 'Economia Circolare',
     progress: 100,
@@ -107,7 +133,7 @@ const statistics = ref([
     progressColor: 'bg-primary'
   },
   {
-    icon: '🍇',
+    icon: 'grape',
     value: '35k+',
     label: 'Viticoltori Soci',
     progress: 100,
@@ -117,7 +143,7 @@ const statistics = ref([
     progressColor: 'bg-accent'
   },
   {
-    icon: '⚡',
+    icon: 'bolt',
     value: '260k',
     label: 'Tonnellate CO₂ evitate',
     progress: 85,
@@ -127,7 +153,7 @@ const statistics = ref([
     progressColor: 'bg-primary'
   },
   {
-    icon: '🌍',
+    icon: 'globe',
     value: '36k',
     label: 'Ettari di Vigneti',
     progress: 100,
@@ -148,10 +174,10 @@ const environmentalImpact = ref([
 
 // Certificazioni attive
 const certifications = ref([
-  { name: 'ISO 14001', icon: '🌿' },
-  { name: 'ISO 9001', icon: '✨' },
-  { name: 'Equalitas', icon: '🏆' },
-  { name: 'Carbon Footprint', icon: '🌍' }
+  { name: 'ISO 14001', icon: 'leaf' },
+  { name: 'ISO 9001', icon: 'sparkles' },
+  { name: 'Equalitas', icon: 'trophy' },
+  { name: 'Carbon Footprint', icon: 'globe' }
 ])
 </script>
 

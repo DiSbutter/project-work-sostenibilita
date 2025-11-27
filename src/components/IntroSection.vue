@@ -56,7 +56,7 @@
         <div class="animate-slide-in-right">
           <div class="bg-gradient-to-br from-primary to-accent rounded-2xl p-8 shadow-2xl text-white transform hover:scale-105 transition-transform duration-300">
             <div class="text-center">
-              <div class="text-6xl mb-6 animate-float">🍇</div>
+              <FireIcon class="w-16 h-16 mx-auto mb-6 animate-float" />
               <h3 class="text-2xl font-heading font-bold mb-4">La Nostra Missione</h3>
               <p class="text-neutral-50 leading-relaxed mb-6 font-body">
                 Valorizzare il lavoro dei viticoltori italiani, produrre vini di qualità 
@@ -82,7 +82,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
         <!-- Valore 1: Economia Circolare -->
         <div class="text-center p-8 bg-gradient-to-br from-neutral-50 to-light rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-light hover:border-primary">
-          <div class="text-5xl mb-4 animate-pulse-slow">♻️</div>
+          <ArrowPathIcon class="w-12 h-12 mx-auto mb-4 text-primary animate-pulse-slow" />
           <h3 class="font-heading font-bold text-xl text-secondary mb-3">Economia Circolare</h3>
           <p class="text-text-secondary leading-relaxed font-body">
             Zero sprechi: ogni sottoprodotto diventa una nuova risorsa. 
@@ -92,7 +92,7 @@
         
         <!-- Valore 2: Cooperazione -->
         <div class="text-center p-8 bg-gradient-to-br from-neutral-50 to-light rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-light hover:border-primary">
-          <div class="text-5xl mb-4 animate-pulse-slow" style="animation-delay: 0.2s">🤝</div>
+          <UserGroupIcon class="w-12 h-12 mx-auto mb-4 text-primary animate-pulse-slow" style="animation-delay: 0.2s" />
           <h3 class="font-heading font-bold text-xl text-secondary mb-3">Cooperazione</h3>
           <p class="text-text-secondary leading-relaxed font-body">
             Un modello unico che unisce 35.000 viticoltori in un progetto 
@@ -102,7 +102,7 @@
         
         <!-- Valore 3: Innovazione -->
         <div class="text-center p-8 bg-gradient-to-br from-neutral-50 to-light rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-light hover:border-primary">
-          <div class="text-5xl mb-4 animate-pulse-slow" style="animation-delay: 0.4s">🔬</div>
+          <BeakerIcon class="w-12 h-12 mx-auto mb-4 text-primary animate-pulse-slow" style="animation-delay: 0.4s" />
           <h3 class="font-heading font-bold text-xl text-secondary mb-3">Innovazione Sostenibile</h3>
           <p class="text-text-secondary leading-relaxed font-body">
             Ricerca continua per tecnologie pulite, processi efficienti 
@@ -115,6 +115,13 @@
 </template>
 
 <script setup>
+import { 
+  ArrowPathIcon, 
+  UserGroupIcon, 
+  BeakerIcon,
+  FireIcon
+} from '@heroicons/vue/24/solid'
+
 // ============================================= //
 // IntroSection - Logica componente           //
 // Componente puramente presentazionale       //

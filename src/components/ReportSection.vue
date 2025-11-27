@@ -39,7 +39,11 @@
             <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
             
             <div class="relative z-10">
-              <div class="text-5xl mb-4">{{ report.icon }}</div>
+              <div class="mb-4">
+                <TrophyIcon v-if="report.icon === 'trophy'" class="w-16 h-16 mx-auto" />
+                <BoltIcon v-else-if="report.icon === 'rocket'" class="w-16 h-16 mx-auto" />
+                <SparklesIcon v-else-if="report.icon === 'sparkles'" class="w-16 h-16 mx-auto" />
+              </div>
               <h3 class="text-3xl font-heading font-bold mb-2">{{ report.year }}</h3>
               <p class="text-sm text-neutral-50 font-body font-medium">Bilancio di Sostenibilità</p>
             </div>
@@ -62,7 +66,7 @@
                 :key="index"
                 class="text-sm text-neutral-700 flex items-start bg-light rounded-lg p-2"
               >
-                <span class="text-primary mr-3 font-bold text-lg">✓</span>
+                <CheckCircleIcon class="w-5 h-5 text-primary mr-3 flex-shrink-0" />
                 <span class="flex-1 font-body">{{ highlight }}</span>
               </li>
             </ul>
@@ -72,13 +76,14 @@
               @click="downloadReport(report.year)"
               class="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white font-body font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-md hover:shadow-lg flex items-center justify-center space-x-2"
             >
-              <span>📥</span>
+              <ArrowDownTrayIcon class="w-5 h-5" />
               <span>Scarica Report PDF</span>
             </button>
             
             <!-- Info aggiuntive -->
-            <div class="mt-4 text-center text-xs text-text-secondary font-body">
-              <span>📄 PDF • {{ report.pages }} pagine • {{ report.size }}</span>
+            <div class="mt-4 text-center text-xs text-text-secondary font-body flex items-center justify-center space-x-2">
+              <DocumentTextIcon class="w-4 h-4" />
+              <span>PDF • {{ report.pages }} pagine • {{ report.size }}</span>
             </div>
           </div>
         </div>
@@ -100,6 +105,14 @@
 
 <script setup>
 import { ref } from 'vue'
+import { 
+  CheckCircleIcon, 
+  TrophyIcon, 
+  BoltIcon,
+  SparklesIcon,
+  ArrowDownTrayIcon,
+  DocumentTextIcon
+} from '@heroicons/vue/24/solid'
 
 // ============================================= //
 // Dati reattivi per i report CAVIRO          //
@@ -116,7 +129,7 @@ const reports = ref([
       '100% economia circolare',
       'Certificazione Equalitas rinnovata'
     ],
-    icon: '🏆',
+    icon: 'trophy',
     pages: 120,
     size: '8.5 MB'
   },
@@ -129,7 +142,7 @@ const reports = ref([
       'Agricoltura 4.0',
       'Valorizzazione territorio'
     ],
-    icon: '🚀',
+    icon: 'rocket',
     pages: 115,
     size: '7.8 MB'
   },
@@ -142,7 +155,7 @@ const reports = ref([
       'Bioraffineria potenziata',
       'Zero sprechi consolidato'
     ],
-    icon: '🌱',
+    icon: 'sparkles',
     pages: 108,
     size: '7.2 MB'
   }
@@ -158,7 +171,7 @@ const downloadReport = (year) => {
   const pdfUrl = `/reports/caviro-bilancio-sostenibilita-${year}.pdf`
   
   // Messaggio informativo per l'utente
-  const message = `📥 Download del Bilancio di Sostenibilità ${year}\n\nPercorso: ${pdfUrl}\n\nNota: In questa versione demo, i file PDF non sono fisicamente disponibili. In produzione, i bilanci verrebbero scaricati automaticamente dal server.`
+  const message = `Download del Bilancio di Sostenibilità ${year}\n\nPercorso: ${pdfUrl}\n\nNota: In questa versione demo, i file PDF non sono fisicamente disponibili. In produzione, i bilanci verrebbero scaricati automaticamente dal server.`
   
   // Conferma download (in produzione rimuovere e fare download diretto)
   if (confirm(message + '\n\nVuoi procedere con la simulazione?')) {
@@ -173,9 +186,9 @@ const downloadReport = (year) => {
       document.body.removeChild(link)
       
       // Messaggio di successo
-      console.log(`✅ Download avviato: Bilancio ${year}`)
+      console.log(`[SUCCESS] Download avviato: Bilancio ${year}`)
     } catch (error) {
-      console.warn('⚠️ File non trovato. Assicurarsi che i PDF siano nella cartella /public/reports/')
+      console.warn('[WARNING] File non trovato. Assicurarsi che i PDF siano nella cartella /public/reports/')
       // In produzione, mostrare un toast/notification elegante
     }
   }
