@@ -29,7 +29,7 @@
         <div 
           v-for="(report, index) in reports" 
           :key="report.year"
-          class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-primary group"
+          class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-primary group flex flex-col h-full"
           :style="{ animationDelay: `${index * 0.1}s` }"
         >
           <!-- Intestazione con gradiente brand -->
@@ -50,26 +50,28 @@
           </div>
           
           <!-- Contenuto della card -->
-          <div class="p-6">
-            <h4 class="font-heading font-bold text-xl text-secondary mb-3 group-hover:text-primary transition-colors">
+          <div class="p-6 flex flex-col flex-grow">
+            <h4 class="font-heading font-bold text-xl text-secondary mb-3 group-hover:text-primary transition-colors report-title">
               {{ report.title }}
             </h4>
             
-            <p class="text-text-secondary font-body text-sm mb-6 leading-relaxed min-h-[60px]">
+            <p class="text-text-secondary font-body text-sm mb-6 leading-relaxed report-description">
               {{ report.description }}
             </p>
             
             <!-- Highlights principali -->
-            <ul class="space-y-3 mb-6">
-              <li 
-                v-for="(highlight, index) in report.highlights" 
-                :key="index"
-                class="text-sm text-neutral-700 flex items-start bg-light rounded-lg p-2"
-              >
-                <CheckCircleIcon class="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                <span class="flex-1 font-body">{{ highlight }}</span>
-              </li>
-            </ul>
+            <div class="report-highlights-container mb-6">
+              <ul class="space-y-3">
+                <li 
+                  v-for="(highlight, index) in report.highlights" 
+                  :key="index"
+                  class="text-sm text-neutral-700 flex items-start bg-light rounded-lg p-2"
+                >
+                  <CheckCircleIcon class="w-5 h-5 text-primary mr-3 flex-shrink-0" />
+                  <span class="flex-1 font-body">{{ highlight }}</span>
+                </li>
+              </ul>
+            </div>
             
             <!-- Pulsante download con brand style -->
             <button
@@ -104,7 +106,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { 
   CheckCircleIcon, 
   TrophyIcon, 
@@ -193,6 +195,64 @@ const downloadReport = (year) => {
     }
   }
 }
+
+// ============================================= //
+// Funzione per allineare altezze di titoli,   //
+// descrizioni e container highlights           //
+// ============================================= //
+
+const alignReportHeights = () => {
+  nextTick(() => {
+    // Trova tutti gli elementi da allineare
+    const titles = document.querySelectorAll('.report-title')
+    const descriptions = document.querySelectorAll('.report-description')
+    const highlightsContainers = document.querySelectorAll('.report-highlights-container')
+    
+    // Calcola l'altezza massima per ogni tipo di elemento
+    let maxTitleHeight = 0
+    let maxDescriptionHeight = 0
+    let maxHighlightsHeight = 0
+    
+    titles.forEach(title => {
+      const height = title.offsetHeight
+      if (height > maxTitleHeight) maxTitleHeight = height
+    })
+    
+    descriptions.forEach(desc => {
+      const height = desc.offsetHeight
+      if (height > maxDescriptionHeight) maxDescriptionHeight = height
+    })
+    
+    highlightsContainers.forEach(container => {
+      const height = container.offsetHeight
+      if (height > maxHighlightsHeight) maxHighlightsHeight = height
+    })
+    
+    // Applica l'altezza massima a tutti gli elementi
+    titles.forEach(title => {
+      title.style.minHeight = `${maxTitleHeight}px`
+    })
+    
+    descriptions.forEach(desc => {
+      desc.style.minHeight = `${maxDescriptionHeight}px`
+    })
+    
+    highlightsContainers.forEach(container => {
+      container.style.minHeight = `${maxHighlightsHeight}px`
+    })
+  })
+}
+
+// Allinea le altezze quando il componente è montato e quando la finestra viene ridimensionata
+onMounted(() => {
+  alignReportHeights()
+  window.addEventListener('resize', alignReportHeights)
+})
+
+// Cleanup listener quando il componente viene smontato
+onUnmounted(() => {
+  window.removeEventListener('resize', alignReportHeights)
+})
 </script>
 
 <style scoped>
