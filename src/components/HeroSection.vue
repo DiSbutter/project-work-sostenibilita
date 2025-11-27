@@ -63,14 +63,14 @@
             <div class="text-sm text-neutral-200 font-body mt-1">Zero sprechi, valore totale</div>
           </div>
           <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border-2 border-primary/50 animate-slide-up hover:bg-white/20 hover:border-primary transition-all duration-300" style="animation-delay: 0.1s">
-            <div class="text-5xl font-heading font-bold mb-2 text-primary">35k+</div>
+            <div class="text-5xl font-heading font-bold mb-2 text-primary">14.900</div>
             <div class="text-neutral-100 font-body font-semibold">Viticoltori Soci</div>
             <div class="text-sm text-neutral-200 font-body mt-1">La più grande cooperativa italiana</div>
           </div>
           <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border-2 border-primary/50 animate-slide-up hover:bg-white/20 hover:border-primary transition-all duration-300" style="animation-delay: 0.2s">
-            <div class="text-5xl font-heading font-bold mb-2 text-primary">60+</div>
+            <div class="text-5xl font-heading font-bold mb-2 text-primary">58</div>
             <div class="text-neutral-100 font-body font-semibold">Anni di Storia</div>
-            <div class="text-sm text-neutral-200 font-body mt-1">Dal 1963 con passione</div>
+            <div class="text-sm text-neutral-200 font-body mt-1">Dal 1966 con passione</div>
           </div>
         </div>
       </div>

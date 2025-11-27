@@ -12,7 +12,7 @@
           Il Nostro Percorso
         </h2>
         <p class="text-xl text-text-secondary max-w-2xl mx-auto font-body">
-          60 anni di storia, innovazione e impegno per la sostenibilità
+          58 anni di storia, innovazione e impegno per la sostenibilità
         </p>
       </div>
       
@@ -139,12 +139,12 @@ const timelineEvents = ref([
     ]
   },
   {
-    year: 2000,
-    title: 'Tavernello: Il Vino più Venduto',
-    description: 'Il brand Tavernello diventa il vino più venduto al mondo, simbolo di qualità accessibile e made in Italy. Consolidamento della leadership di mercato.',
+    year: 2008,
+    title: 'Tavernello: Tra i Vini Più Venduti al Mondo',
+    description: 'Il brand Tavernello raggiunge la quinta posizione tra i vini più venduti al mondo con 11,4 milioni di confezioni, simbolo di qualità accessibile e made in Italy. Consolidamento della leadership di mercato.',
     achievements: [
-      'Leader mondiale',
-      'Brand iconico',
+      '5° posto mondiale',
+      '11,4M confezioni',
       'Export globale'
     ]
   },
@@ -159,9 +159,9 @@ const timelineEvents = ref([
     ]
   },
   {
-    year: 1963,
+    year: 1966,
     title: 'Fondazione Gruppo CAVIRO',
-    description: 'Nasce a Faenza la Cooperativa Agricola Vitivinicola dell\'Imolese e della Romagna Orientale, con la missione di valorizzare il lavoro dei viticoltori locali.',
+    description: 'Nasce a Faenza la Cooperativa Agricola Vitivinicola dell\'Imolese e della Romagna Orientale, con la missione di valorizzare il lavoro dei viticoltori locali e rappresentare il più grande vigneto d\'Italia.',
     achievements: [
       'Nascita cooperativa',
       'Valori fondanti',

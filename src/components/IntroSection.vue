@@ -27,21 +27,23 @@
         <div class="prose prose-lg text-neutral-600 leading-relaxed animate-slide-in-left font-body">
           <p class="mb-6 text-lg">
             <strong class="text-primary text-xl font-bold">Gruppo CAVIRO</strong> è la principale cooperativa 
-            vitivinicola italiana, punto di riferimento per oltre 35.000 viticoltori soci 
-            che lavorano su oltre 36.000 ettari di vigneti in 13 regioni italiane.
+            vitivinicola italiana, punto di riferimento per oltre 14.900 viticoltori soci 
+            che lavorano su oltre 34.100 ettari di vigneti in 7 regioni italiane, rappresentando 
+            oltre l'8,5% della produzione nazionale di uva.
           </p>
           
           <p class="mb-6">
-            Fondata nel 1963 a Faenza, CAVIRO rappresenta un modello unico di <strong class="text-primary">economia circolare</strong> 
+            Fondata nel 1966 a Faenza, CAVIRO rappresenta un modello unico di <strong class="text-primary">economia circolare</strong> 
             applicata al settore vitivinicolo: ogni sottoprodotto della vinificazione viene 
             trasformato in nuove risorse, dal bioetanolo all'energia rinnovabile, dai fertilizzanti 
-            ai cosmetici naturali.
+            ai prodotti nobili come alcol, acido tartarico e biocarburanti.
           </p>
           
           <p class="mb-6">
-            Con un fatturato di oltre 300 milioni di euro, il Gruppo è presente sul mercato 
-            con brand storici come <strong class="text-primary">Tavernello</strong>, il vino più venduto al mondo, 
-            e sviluppa prodotti innovativi nel rispetto della sostenibilità ambientale e sociale.
+            Con un fatturato consolidato di 385 milioni di euro (2023-2024), il Gruppo è presente sul mercato 
+            con brand storici come <strong class="text-primary">Tavernello</strong>, uno dei vini più venduti al mondo, 
+            e sviluppa prodotti innovativi nel rispetto della sostenibilità ambientale e sociale, 
+            investendo oltre 12 milioni di euro in progetti ESG.
           </p>
           
           <p class="mb-6">
@@ -65,11 +67,11 @@
               </p>
               <div class="grid grid-cols-2 gap-4 mt-8">
                 <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                  <div class="text-3xl font-heading font-bold">35k+</div>
+                  <div class="text-3xl font-heading font-bold">14.900</div>
                   <div class="text-sm text-neutral-100 font-body">Viticoltori Soci</div>
                 </div>
                 <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                  <div class="text-3xl font-heading font-bold">13</div>
+                  <div class="text-3xl font-heading font-bold">7</div>
                   <div class="text-sm text-neutral-100 font-body">Regioni Italiane</div>
                 </div>
               </div>
@@ -95,7 +97,7 @@
           <UserGroupIcon class="w-12 h-12 mx-auto mb-4 text-primary animate-pulse-slow" style="animation-delay: 0.2s" />
           <h3 class="font-heading font-bold text-xl text-secondary mb-3">Cooperazione</h3>
           <p class="text-text-secondary leading-relaxed font-body">
-            Un modello unico che unisce 35.000 viticoltori in un progetto 
+            Un modello unico che unisce 14.900 viticoltori in un progetto 
             comune di valorizzazione del territorio e del lavoro agricolo.
           </p>
         </div>

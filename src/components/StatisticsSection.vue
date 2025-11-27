@@ -127,37 +127,37 @@ const statistics = ref([
     value: '100%',
     label: 'Economia Circolare',
     progress: 100,
-    goal: 'Zero sprechi dal 2020',
+    goal: 'Valorizzazione completa dei sottoprodotti',
     borderColor: 'border-primary',
     iconColor: '#8B1538',
     progressColor: 'bg-primary'
   },
   {
     icon: 'grape',
-    value: '35k+',
+    value: '14.900',
     label: 'Viticoltori Soci',
     progress: 100,
-    goal: 'La più grande cooperativa',
+    goal: 'La più grande cooperativa d\'Italia',
     borderColor: 'border-accent',
     iconColor: '#AB4660',
     progressColor: 'bg-accent'
   },
   {
-    icon: 'bolt',
-    value: '260k',
-    label: 'Tonnellate CO₂ evitate',
-    progress: 85,
-    goal: 'Obiettivo 300k entro 2026',
+    icon: 'globe',
+    value: '34.100',
+    label: 'Ettari di Vigneti',
+    progress: 100,
+    goal: 'Oltre l\'8,5% della produzione nazionale',
     borderColor: 'border-primary',
     iconColor: '#8B1538',
     progressColor: 'bg-primary'
   },
   {
-    icon: 'globe',
-    value: '36k',
-    label: 'Ettari di Vigneti',
+    icon: 'bolt',
+    value: '385M€',
+    label: 'Fatturato 2023-2024',
     progress: 100,
-    goal: 'In 13 regioni italiane',
+    goal: 'Crescita continua e sostenibile',
     borderColor: 'border-accent',
     iconColor: '#AB4660',
     progressColor: 'bg-accent'
@@ -166,9 +166,9 @@ const statistics = ref([
 
 // Impatto ambientale dettagliato
 const environmentalImpact = ref([
-  { label: 'Bioetanolo prodotto (t/anno)', value: '20k+' },
-  { label: 'Energia rinnovabile generata (MWh)', value: '15k+' },
-  { label: 'Acqua recuperata e riutilizzata (%)', value: '95%' },
+  { label: 'Sottoprodotti vitivinicoli valorizzati (t/anno)', value: '110k+' },
+  { label: 'Scarti agroalimentari trattati (t/anno)', value: '500k+' },
+  { label: 'Investimenti ESG 2023-2024', value: '12M€+' },
   { label: 'Sottoprodotti valorizzati (%)', value: '100%' }
 ])
 

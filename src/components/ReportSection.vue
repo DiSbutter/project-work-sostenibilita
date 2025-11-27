@@ -122,12 +122,12 @@ import {
 const reports = ref([
   {
     year: 2024,
-    title: 'Economia Circolare: Il Futuro è Qui',
-    description: 'Risultati straordinari nell\'economia circolare con 260k tonnellate di CO₂ evitate e 100% di valorizzazione dei sottoprodotti.',
+    title: 'Economia Circolare e Investimenti ESG',
+    description: 'Fatturato consolidato di 385 milioni di euro, investimenti ESG di oltre 12 milioni di euro e valorizzazione di 110.000 tonnellate di sottoprodotti vitivinicoli.',
     highlights: [
-      '260k t CO₂ evitate',
-      '100% economia circolare',
-      'Certificazione Equalitas rinnovata'
+      '385M€ fatturato consolidato',
+      '12M€ investimenti ESG',
+      '110k t sottoprodotti valorizzati'
     ],
     icon: 'trophy',
     pages: 120,
@@ -135,12 +135,12 @@ const reports = ref([
   },
   {
     year: 2023,
-    title: 'Innovazione e Territorio',
-    description: 'Focus sull\'innovazione tecnologica e il supporto ai 35.000 viticoltori soci, con investimenti in agricoltura di precisione.',
+    title: 'Sostenibilità e Riduzione CO₂',
+    description: 'Inclusione nella lista delle aziende italiane più attente al clima. Focus sulla riduzione delle emissioni di CO₂ e valorizzazione completa dei sottoprodotti.',
     highlights: [
-      '35k+ viticoltori supportati',
-      'Agricoltura 4.0',
-      'Valorizzazione territorio'
+      'Riduzione emissioni CO₂',
+      'Economia circolare',
+      '110k t sottoprodotti valorizzati'
     ],
     icon: 'rocket',
     pages: 115,
@@ -149,10 +149,10 @@ const reports = ref([
   {
     year: 2020,
     title: 'Resilienza e Sostenibilità',
-    description: 'Anno della resilienza post-pandemica con focus sulla sostenibilità sociale ed economica della filiera vitivinicola.',
+    description: 'Anno della resilienza post-pandemica con focus sulla sostenibilità sociale ed economica della filiera vitivinicola. Consolidamento del modello di economia circolare.',
     highlights: [
       'Supporto filiera',
-      'Bioraffineria potenziata',
+      'Bioraffineria attiva',
       'Zero sprechi consolidato'
     ],
     icon: 'sparkles',
