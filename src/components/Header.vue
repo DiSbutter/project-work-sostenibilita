@@ -1,38 +1,41 @@
 <template>
-  <!-- Header principale del sito con navigazione sticky -->
-  <!-- Questo header rimane visibile durante lo scroll per facilitare la navigazione -->
+  <!-- ============================================= -->
+  <!-- Header principale - Gruppo CAVIRO -->
+  <!-- Brand compliant: Colori P 7645C e P 209C, Font Merriweather -->
+  <!-- Sticky header con transizioni smooth per ottima UX -->
+  <!-- ============================================= -->
   <header 
     ref="header"
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-    :class="isScrolled ? 'bg-white shadow-lg text-gray-800' : 'bg-transparent text-white'"
+    :class="isScrolled ? 'bg-white shadow-lg text-neutral-700' : 'bg-secondary/95 backdrop-blur-sm text-white'"
   >
     <div class="container mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
-        <!-- Logo e titolo (cliccabile per tornare alla home) -->
-        <a href="#home" class="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-          <!-- Logo dell'azienda (placeholder) -->
-          <div class="h-12 w-12 bg-white rounded-full p-2 flex items-center justify-center shadow-md">
-            <span class="text-2xl font-bold text-primary">🌱</span>
+        <!-- Logo e titolo brand CAVIRO (cliccabile per tornare alla home) -->
+        <a href="#home" class="flex items-center space-x-4 hover:opacity-90 transition-opacity">
+          <!-- Logo CAVIRO con iniziali -->
+          <div class="h-12 w-12 bg-white rounded-lg p-2 flex items-center justify-center shadow-md border-2 border-primary">
+            <span class="text-xl font-heading font-bold text-primary">C</span>
           </div>
-          <!-- Titolo e sottotitolo -->
+          <!-- Titolo e claim brand -->
           <div>
-            <h1 class="text-xl md:text-2xl font-bold transition-colors" :class="isScrolled ? 'text-primary' : 'text-white'">
-              AgriBio Sostenibile
+            <h1 class="text-xl md:text-2xl font-heading font-bold transition-colors" :class="isScrolled ? 'text-primary' : 'text-white'">
+              Gruppo CAVIRO
             </h1>
-            <p class="text-xs md:text-sm transition-colors" :class="isScrolled ? 'text-gray-600' : 'text-green-100'">
-              Coltivare il futuro, rispettare la terra
+            <p class="text-xs md:text-sm font-body transition-colors" :class="isScrolled ? 'text-text-secondary' : 'text-neutral-100'">
+              Economia Circolare & Sostenibilità
             </p>
           </div>
         </a>
         
-        <!-- Menu di navigazione desktop -->
+        <!-- Menu di navigazione desktop - Brand compliant -->
         <nav class="hidden md:block">
-          <ul class="flex space-x-8">
+          <ul class="flex space-x-8 font-body">
             <li>
               <a 
                 href="#home" 
-                class="font-medium hover:text-primary transition-colors duration-200"
-                :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
               >
                 Home
               </a>
@@ -40,35 +43,35 @@
             <li>
               <a 
                 href="#chi-siamo" 
-                class="font-medium hover:text-primary transition-colors duration-200"
-                :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
               >
-                Chi Siamo
+                Il Gruppo
               </a>
             </li>
             <li>
               <a 
                 href="#statistiche" 
-                class="font-medium hover:text-primary transition-colors duration-200"
-                :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
               >
-                Risultati
+                Sostenibilità
               </a>
             </li>
             <li>
               <a 
                 href="#report" 
-                class="font-medium hover:text-primary transition-colors duration-200"
-                :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
               >
-                Report
+                Bilanci
               </a>
             </li>
             <li>
               <a 
                 href="#contatti" 
-                class="font-medium hover:text-primary transition-colors duration-200"
-                :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
               >
                 Contatti
               </a>
@@ -80,8 +83,8 @@
         <button 
           @click="toggleMobileMenu"
           class="md:hidden p-2 rounded-lg transition-colors"
-          :class="isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'"
-          aria-label="Menu"
+          :class="isScrolled ? 'text-neutral-700 hover:bg-neutral-100' : 'text-white hover:bg-white/10'"
+          aria-label="Menu di navigazione"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -90,19 +93,19 @@
         </button>
       </div>
       
-      <!-- Menu mobile -->
+      <!-- Menu mobile - Responsive e accessibile -->
       <div 
         v-if="mobileMenuOpen"
-        class="md:hidden mt-4 pb-4 border-t pt-4 animate-slide-up"
-        :class="isScrolled ? 'border-gray-200' : 'border-white/20'"
+        class="md:hidden mt-4 pb-4 border-t pt-4 animate-slide-up font-body"
+        :class="isScrolled ? 'border-neutral-200' : 'border-white/20'"
       >
         <ul class="space-y-3">
           <li>
             <a 
               href="#home" 
               @click="closeMobileMenu"
-              class="block py-2 font-medium transition-colors"
-              :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+              class="block py-2 font-semibold transition-colors"
+              :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
             >
               Home
             </a>
@@ -111,38 +114,38 @@
             <a 
               href="#chi-siamo" 
               @click="closeMobileMenu"
-              class="block py-2 font-medium transition-colors"
-              :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+              class="block py-2 font-semibold transition-colors"
+              :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
             >
-              Chi Siamo
+              Il Gruppo
             </a>
           </li>
           <li>
             <a 
               href="#statistiche" 
               @click="closeMobileMenu"
-              class="block py-2 font-medium transition-colors"
-              :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+              class="block py-2 font-semibold transition-colors"
+              :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
             >
-              Risultati
+              Sostenibilità
             </a>
           </li>
           <li>
             <a 
               href="#report" 
               @click="closeMobileMenu"
-              class="block py-2 font-medium transition-colors"
-              :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+              class="block py-2 font-semibold transition-colors"
+              :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
             >
-              Report
+              Bilanci
             </a>
           </li>
           <li>
             <a 
               href="#contatti" 
               @click="closeMobileMenu"
-              class="block py-2 font-medium transition-colors"
-              :class="isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-green-200'"
+              class="block py-2 font-semibold transition-colors"
+              :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
             >
               Contatti
             </a>
