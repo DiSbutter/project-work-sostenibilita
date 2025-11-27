@@ -97,6 +97,20 @@
               ></textarea>
             </div>
             
+            <!-- Messaggio di errore -->
+            <div 
+              v-if="submitError"
+              class="bg-red-50 border-2 border-red-500 text-red-700 px-6 py-4 rounded-lg animate-slide-up"
+            >
+              <div class="flex items-center space-x-3">
+                <span class="text-2xl">⚠️</span>
+                <div class="font-body">
+                  <p class="font-bold">Errore durante l'invio</p>
+                  <p class="text-sm">Riprova più tardi o contattaci direttamente via email.</p>
+                </div>
+              </div>
+            </div>
+            
             <!-- Messaggio di conferma -->
             <div 
               v-if="showConfirmation"
@@ -114,11 +128,13 @@
             <!-- Pulsante di invio -->
             <button
               type="submit"
-              class="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white font-body font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-lg hover:shadow-xl"
+              :disabled="isSubmitting"
+              class="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white font-body font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               <span class="flex items-center justify-center space-x-2">
-                <span>📧</span>
-                <span>Invia Messaggio</span>
+                <span v-if="!isSubmitting">📧</span>
+                <span v-else class="animate-spin">⏳</span>
+                <span>{{ isSubmitting ? 'Invio in corso...' : 'Invia Messaggio' }}</span>
               </span>
             </button>
           </form>
@@ -212,37 +228,57 @@ const formData = ref({
 // Stato per mostrare il messaggio di conferma
 const showConfirmation = ref(false)
 
+// Stato per gestire loading e errori
+const isSubmitting = ref(false)
+const submitError = ref(false)
+
 // Funzione che gestisce l'invio del form
-const handleSubmit = () => {
-  // In produzione, qui invieremmo i dati al backend con fetch/axios
-  console.log('📧 Dati form inviati:', formData.value)
+const handleSubmit = async () => {
+  isSubmitting.value = true
+  submitError.value = false
   
-  // Esempio di chiamata API (da implementare in produzione):
-  /*
-  fetch('https://api.gruppocaviro.com/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData.value)
-  })
-  .then(response => response.json())
-  .then(data => {
-    showConfirmation.value = true
-    setTimeout(() => resetForm(), 5000)
-  })
-  .catch(error => {
-    console.error('Errore invio form:', error)
-  })
-  */
-  
-  // Mostra messaggio di conferma
-  showConfirmation.value = true
-  
-  // Reset del form dopo 5 secondi
-  setTimeout(() => {
-    resetForm()
-  }, 5000)
+  try {
+    // Prepara i dati per FormSubmit
+    const formBody = new FormData()
+    formBody.append('name', formData.value.name)
+    formBody.append('email', formData.value.email)
+    formBody.append('company', formData.value.company || 'Non specificata')
+    formBody.append('message', formData.value.message)
+    formBody.append('_subject', `Nuovo contatto da ${formData.value.name}`)
+    formBody.append('_captcha', 'false') // Disabilita captcha per test
+    formBody.append('_template', 'table') // Formato tabella per la email
+    
+    // Invio a FormSubmit
+    const response = await fetch('https://formsubmit.co/test00016formpw@yopmail.com', {
+      method: 'POST',
+      body: formBody,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    
+    if (response.ok) {
+      console.log('📧 Email inviata con successo!')
+      showConfirmation.value = true
+      
+      // Reset del form dopo 5 secondi
+      setTimeout(() => {
+        resetForm()
+      }, 5000)
+    } else {
+      throw new Error('Errore durante l\'invio')
+    }
+  } catch (error) {
+    console.error('❌ Errore invio email:', error)
+    submitError.value = true
+    
+    // Nascondi messaggio errore dopo 5 secondi
+    setTimeout(() => {
+      submitError.value = false
+    }, 5000)
+  } finally {
+    isSubmitting.value = false
+  }
 }
 
 // Funzione per resettare il form
