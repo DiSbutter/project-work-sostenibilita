@@ -108,7 +108,7 @@ import { ref } from 'vue'
 
 const reports = ref([
   {
-    year: 2023,
+    year: 2024,
     title: 'Economia Circolare: Il Futuro è Qui',
     description: 'Risultati straordinari nell\'economia circolare con 260k tonnellate di CO₂ evitate e 100% di valorizzazione dei sottoprodotti.',
     highlights: [
@@ -121,7 +121,7 @@ const reports = ref([
     size: '8.5 MB'
   },
   {
-    year: 2022,
+    year: 2023,
     title: 'Innovazione e Territorio',
     description: 'Focus sull\'innovazione tecnologica e il supporto ai 35.000 viticoltori soci, con investimenti in agricoltura di precisione.',
     highlights: [
@@ -134,7 +134,7 @@ const reports = ref([
     size: '7.8 MB'
   },
   {
-    year: 2021,
+    year: 2020,
     title: 'Resilienza e Sostenibilità',
     description: 'Anno della resilienza post-pandemica con focus sulla sostenibilità sociale ed economica della filiera vitivinicola.',
     highlights: [
