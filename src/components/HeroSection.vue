@@ -19,7 +19,7 @@
       <div class="animate-fade-in">
         <!-- Logo o badge CAVIRO -->
         <div class="mb-8 flex justify-center">
-          <div class="bg-white/10 backdrop-blur-md border-2 border-primary rounded-2xl p-6 inline-block">
+          <div class="bg-white/10 backdrop-blur-md border-2 border-primary rounded-2xl p-6 inline-block mt-[50px]">
             <span class="text-6xl font-heading font-bold text-primary">CAVIRO</span>
           </div>
         </div>
