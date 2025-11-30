@@ -6,15 +6,23 @@
   <!-- ============================================= -->
   <header 
     ref="header"
+    role="banner"
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     :class="isScrolled ? 'bg-white shadow-lg text-neutral-700' : 'bg-secondary/95 backdrop-blur-sm text-white'"
   >
     <div class="container mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
         <!-- Logo e titolo brand CAVIRO (cliccabile per tornare alla home) -->
-        <a href="#home" class="flex items-center space-x-4 hover:opacity-90 transition-opacity">
+        <a 
+          href="#home" 
+          class="flex items-center space-x-4 hover:opacity-90 transition-opacity focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded-lg p-2 -ml-2"
+          aria-label="Gruppo CAVIRO - Torna alla home"
+        >
           <!-- Logo CAVIRO con iniziali -->
-          <div class="h-12 w-12 bg-white rounded-lg p-2 flex items-center justify-center shadow-md border-2 border-primary">
+          <div 
+            class="h-12 w-12 bg-white rounded-lg p-2 flex items-center justify-center shadow-md border-2 border-primary"
+            aria-hidden="true"
+          >
             <span class="text-xl font-heading font-bold text-primary">C</span>
           </div>
           <!-- Titolo e claim brand -->
@@ -29,13 +37,18 @@
         </a>
         
         <!-- Menu di navigazione desktop - Brand compliant -->
-        <nav class="hidden md:block">
+        <nav 
+          class="hidden md:block" 
+          role="navigation" 
+          aria-label="Navigazione principale"
+        >
           <ul class="flex space-x-8 font-body">
             <li>
               <a 
                 href="#home" 
-                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded px-2 py-1"
                 :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
+                aria-label="Vai alla sezione Home"
               >
                 Home
               </a>
@@ -43,8 +56,9 @@
             <li>
               <a 
                 href="#chi-siamo" 
-                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded px-2 py-1"
                 :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
+                aria-label="Vai alla sezione Il Gruppo"
               >
                 Il Gruppo
               </a>
@@ -52,8 +66,9 @@
             <li>
               <a 
                 href="#statistiche" 
-                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded px-2 py-1"
                 :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
+                aria-label="Vai alla sezione Sostenibilità"
               >
                 Sostenibilità
               </a>
@@ -61,8 +76,9 @@
             <li>
               <a 
                 href="#report" 
-                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded px-2 py-1"
                 :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
+                aria-label="Vai alla sezione Bilanci di Sostenibilità"
               >
                 Bilanci
               </a>
@@ -70,8 +86,9 @@
             <li>
               <a 
                 href="#contatti" 
-                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                class="font-semibold hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded px-2 py-1"
                 :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
+                aria-label="Vai alla sezione Contatti"
               >
                 Contatti
               </a>
@@ -82,9 +99,13 @@
         <!-- Menu mobile button -->
         <button 
           @click="toggleMobileMenu"
-          class="md:hidden p-2 rounded-lg transition-colors"
+          @keydown.enter="toggleMobileMenu"
+          @keydown.space.prevent="toggleMobileMenu"
+          class="md:hidden p-2 rounded-lg transition-colors focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2"
           :class="isScrolled ? 'text-neutral-700 hover:bg-neutral-100' : 'text-white hover:bg-white/10'"
-          aria-label="Menu di navigazione"
+          :aria-label="mobileMenuOpen ? 'Chiudi menu di navigazione' : 'Apri menu di navigazione'"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="mobile-menu"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -94,8 +115,11 @@
       </div>
       
       <!-- Menu mobile - Responsive e accessibile -->
-      <div 
+      <nav
         v-if="mobileMenuOpen"
+        id="mobile-menu"
+        role="navigation"
+        aria-label="Navigazione mobile"
         class="md:hidden mt-4 pb-4 border-t pt-4 animate-slide-up font-body"
         :class="isScrolled ? 'border-neutral-200' : 'border-white/20'"
       >
@@ -104,8 +128,9 @@
             <a 
               href="#home" 
               @click="closeMobileMenu"
-              class="block py-2 font-semibold transition-colors"
+              class="block py-2 font-semibold transition-colors focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded px-2"
               :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
+              aria-label="Vai alla sezione Home"
             >
               Home
             </a>
@@ -114,8 +139,9 @@
             <a 
               href="#chi-siamo" 
               @click="closeMobileMenu"
-              class="block py-2 font-semibold transition-colors"
+              class="block py-2 font-semibold transition-colors focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded px-2"
               :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
+              aria-label="Vai alla sezione Il Gruppo"
             >
               Il Gruppo
             </a>
@@ -124,8 +150,9 @@
             <a 
               href="#statistiche" 
               @click="closeMobileMenu"
-              class="block py-2 font-semibold transition-colors"
+              class="block py-2 font-semibold transition-colors focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded px-2"
               :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
+              aria-label="Vai alla sezione Sostenibilità"
             >
               Sostenibilità
             </a>
@@ -134,8 +161,9 @@
             <a 
               href="#report" 
               @click="closeMobileMenu"
-              class="block py-2 font-semibold transition-colors"
+              class="block py-2 font-semibold transition-colors focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded px-2"
               :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
+              aria-label="Vai alla sezione Bilanci di Sostenibilità"
             >
               Bilanci
             </a>
@@ -144,14 +172,15 @@
             <a 
               href="#contatti" 
               @click="closeMobileMenu"
-              class="block py-2 font-semibold transition-colors"
+              class="block py-2 font-semibold transition-colors focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 rounded px-2"
               :class="isScrolled ? 'text-neutral-700 hover:text-primary' : 'text-white hover:text-accent'"
+              aria-label="Vai alla sezione Contatti"
             >
               Contatti
             </a>
           </li>
         </ul>
-      </div>
+      </nav>
     </div>
   </header>
 </template>

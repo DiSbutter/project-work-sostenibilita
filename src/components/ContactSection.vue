@@ -257,7 +257,7 @@ const handleSubmit = async () => {
     formBody.append('_template', 'table') // Formato tabella per la email
     
     // Invio a FormSubmit
-    const response = await fetch('https://formsubmit.co/test00016formpw@yopmail.com', {
+    const response = await fetch('https://formsubmit.co/marcdp99@gmail.com', {
       method: 'POST',
       body: formBody,
       headers: {
