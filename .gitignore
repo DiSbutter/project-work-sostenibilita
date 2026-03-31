@@ -24,6 +24,3 @@ dist-ssr
 *.sln
 *.sw?
 
-# Replit
-.replit
-replit.nix

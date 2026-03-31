@@ -490,7 +490,6 @@ Il sito è ora:
 
 ---
 
-**Refactoring completato da**: AI Assistant  
 **Data**: Novembre 2025  
 **Versione finale**: 2.0
 
