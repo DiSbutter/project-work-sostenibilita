@@ -246,25 +246,26 @@ const handleSubmit = async () => {
   submitError.value = false
   
   try {
-    // Prepara i dati per FormSubmit
-    const formBody = new FormData()
-    formBody.append('name', formData.value.name)
-    formBody.append('email', formData.value.email)
-    formBody.append('company', formData.value.company || 'Non specificata')
-    formBody.append('message', formData.value.message)
-    formBody.append('_subject', `Nuovo contatto da ${formData.value.name}`)
-    formBody.append('_captcha', 'false') // Disabilita captcha per test
-    formBody.append('_template', 'table') // Formato tabella per la email
+    // Architettura invio tramite Resend (Endpoint Serverless)
+    // Invio dei dati al backend in formato JSON
+    const payload = {
+      name: formData.value.name,
+      email: formData.value.email,
+      company: formData.value.company || '',
+      message: formData.value.message
+    }
     
-    // Invio a FormSubmit
-    const response = await fetch('https://formsubmit.co/marcdp99@gmail.com', {
+    // Chiamata all'endpoint locale (servito da Vercel/Netlify o proxy locale)
+    const response = await fetch('/api/send-email', {
       method: 'POST',
-      body: formBody,
       headers: {
+        'Content-Type': 'application/json',
         'Accept': 'application/json'
-      }
+      },
+      body: JSON.stringify(payload)
     })
     
+    // Il backend Resend restituirà 'ok' se l'API key è valida 
     if (response.ok) {
       console.log('[SUCCESS] Email inviata con successo!')
       showConfirmation.value = true
