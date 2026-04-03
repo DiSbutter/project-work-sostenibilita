@@ -5,9 +5,8 @@ import { Resend } from 'resend';
 // Compatibile con Vercel Functions           //
 // ========================================== //
 
-// INSERIRE LA PROPRIA API KEY REALE QUI AL POSTO DEL PLACEHOLDER
-// Puoi ottenere la tua API Key registrandoti su https://resend.com/
-const resend = new Resend('re_YOUR_RESEND_API_KEY_HERE');
+// Inizializzazione sicura tramite variabile d'ambiente
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
   // CORS Configuration (Opzionale: garantisce che possa essere chiamato dal frontend)
