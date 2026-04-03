@@ -61,3 +61,207 @@
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
+
+/* ============================================= */
+/* Accessibilità AAA - WCAG 2.1 Level AAA       */
+/* ============================================= */
+
+/* Focus visibili per navigazione da tastiera - Contrasto AAA */
+*:focus-visible {
+  outline: 3px solid #8B1538;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Contrasto migliorato per testo su sfondi chiari */
+.text-text-secondary {
+  color: #374151; /* Contrasto 7:1 su bianco per AAA */
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Skip link styling */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #8B1538;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  z-index: 100;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid white;
+  outline-offset: 2px;
+}
+
+/* ============================================= */
+/* Responsività migliorata                      */
+/* ============================================= */
+
+/* Breakpoint personalizzati per dispositivi */
+@media (max-width: 640px) {
+  /* Mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Tablet */
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Desktop */
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ============================================= */
+/* Miglioramenti accessibilità per form         */
+/* ============================================= */
+
+/* Label sempre visibili e con contrasto AAA */
+label {
+  font-weight: 600;
+  color: #1f2937; /* Contrasto 7:1 su bianco */
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Input con focus visibile */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid #8B1538;
+  outline-offset: 2px;
+  border-color: #8B1538;
+}
+
+/* Messaggi di errore con contrasto AAA */
+.error-message {
+  color: #991b1b; /* Rosso con contrasto 7:1 */
+  font-weight: 600;
+  background-color: #fee2e2;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 2px solid #991b1b;
+}
+
+/* Messaggi di successo con contrasto AAA */
+.success-message {
+  color: #065f46; /* Verde con contrasto 7:1 */
+  font-weight: 600;
+  background-color: #d1fae5;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 2px solid #065f46;
+}
+
+/* ============================================= */
+/* Animazioni rispettose delle preferenze utente */
+/* ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================= */
+/* Contrasto colori migliorato per AAA          */
+/* ============================================= */
+
+/* Testo primario su sfondo bianco */
+.text-primary-on-white {
+  color: #8B1538; /* Contrasto 7:1 */
+}
+
+/* Link con contrasto AAA */
+a {
+  color: #8B1538;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: #AB4660;
+  text-decoration-thickness: 3px;
+}
+
+a:focus {
+  outline: 3px solid #8B1538;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Testo su sfondo scuro con contrasto AAA */
+.text-white-on-dark {
+  color: #ffffff;
+  background-color: #1f2937;
+}
+
+/* ============================================= */
+/* Utility per touch targets (mobile)          */
+/* ============================================= */
+
+@media (pointer: coarse) {
+  /* Touch target minimo 44x44px per mobile */
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

@@ -41,7 +41,8 @@ Il sito presenta:
   "vue": "^3.4.21",
   "tailwindcss": "^3.4.1",
   "vite": "^5.1.4",
-  "@vitejs/plugin-vue": "^5.0.4"
+  "@vitejs/plugin-vue": "^5.0.4",
+  "resend": "^4.0.0"
 }
 ```
 
@@ -84,6 +85,8 @@ npm run preview
 
 ```
 project-work-sostenibilita/
+├── api/                 # Endpoint Serverless Vercel/Netlify
+│   └── send-email.js    # Integrazione invio email Resend
 ├── public/              # Assets statici (logo, PDF, immagini)
 │   ├── assets/
 │   │   └── logo.svg
@@ -252,6 +255,7 @@ Output in `dist/` pronto per deploy su:
 
 Se necessario, creare `.env` per:
 ```env
+RESEND_API_KEY=re_inserisci_la_tua_chiave_api_qui
 VITE_API_ENDPOINT=https://api.gruppocaviro.com
 VITE_GA_TRACKING_ID=UA-XXXXXXXXX-X
 ```

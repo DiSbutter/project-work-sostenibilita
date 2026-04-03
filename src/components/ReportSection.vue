@@ -3,71 +3,81 @@
   <!-- Sezione Report di Sostenibilità - CAVIRO -->
   <!-- Download bilanci annuali con design brand -->
   <!-- Colori P 7645C e P 209C, font Merriweather/Lato -->
+  <!-- Accessibilità AAA - Responsive completo -->
   <!-- ============================================= -->
-  <section id="report" class="py-20 bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden">
+  <section 
+    id="report" 
+    class="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden"
+    aria-labelledby="report-heading"
+  >
     <!-- Pattern decorativo di sfondo -->
-    <div class="absolute top-0 left-0 w-full h-full opacity-5">
+    <div class="absolute top-0 left-0 w-full h-full opacity-5" aria-hidden="true">
       <div class="absolute inset-0 pattern-bg-report"></div>
     </div>
     
     <div class="container mx-auto px-4 max-w-7xl relative z-10">
       <!-- Titolo della sezione -->
-      <div class="text-center mb-16 animate-fade-in">
-        <h2 class="text-4xl md:text-5xl font-heading font-bold text-secondary mb-4">
+      <div class="text-center mb-12 md:mb-16 animate-fade-in">
+        <h2 id="report-heading" class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-secondary mb-4">
           Bilanci di Sostenibilità
         </h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
-        <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed font-body">
+        <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4" aria-hidden="true"></div>
+        <p class="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed font-body">
           Trasparenza e rendicontazione: ogni anno pubblichiamo il nostro impegno concreto 
           per un futuro sostenibile, documentando progressi, obiettivi e impatto sul territorio.
         </p>
       </div>
       
       <!-- Griglia di card per i report -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" role="list">
         <!-- Card per ogni anno con design brand CAVIRO -->
-        <div 
+        <article 
           v-for="(report, index) in reports" 
           :key="report.year"
-          class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-primary group flex flex-col h-full"
+          class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-primary group flex flex-col h-full focus-within:ring-4 focus-within:ring-primary focus-within:ring-offset-2"
           :style="{ animationDelay: `${index * 0.1}s` }"
+          role="listitem"
+          :aria-labelledby="`report-title-${report.year}`"
         >
           <!-- Intestazione con gradiente brand -->
-          <div class="bg-gradient-to-br from-primary via-accent to-light p-8 text-white relative overflow-hidden">
+          <div class="bg-gradient-to-br from-primary via-accent to-light p-6 md:p-8 text-white relative overflow-hidden">
             <!-- Pattern decorativo -->
-            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
-            <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" aria-hidden="true"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12" aria-hidden="true"></div>
             
             <div class="relative z-10">
-              <div class="mb-4">
-                <TrophyIcon v-if="report.icon === 'trophy'" class="w-16 h-16 mx-auto" />
-                <BoltIcon v-else-if="report.icon === 'rocket'" class="w-16 h-16 mx-auto" />
-                <SparklesIcon v-else-if="report.icon === 'sparkles'" class="w-16 h-16 mx-auto" />
+              <div class="mb-4" aria-hidden="true">
+                <TrophyIcon v-if="report.icon === 'trophy'" class="w-12 h-12 md:w-16 md:h-16 mx-auto" />
+                <BoltIcon v-else-if="report.icon === 'rocket'" class="w-12 h-12 md:w-16 md:h-16 mx-auto" />
+                <SparklesIcon v-else-if="report.icon === 'sparkles'" class="w-12 h-12 md:w-16 md:h-16 mx-auto" />
               </div>
-              <h3 class="text-3xl font-heading font-bold mb-2">{{ report.year }}</h3>
+              <h3 class="text-2xl md:text-3xl font-heading font-bold mb-2">{{ report.year }}</h3>
               <p class="text-sm text-neutral-50 font-body font-medium">Bilancio di Sostenibilità</p>
             </div>
           </div>
           
           <!-- Contenuto della card -->
-          <div class="p-6 flex flex-col flex-grow">
-            <h4 class="font-heading font-bold text-xl text-secondary mb-3 group-hover:text-primary transition-colors report-title">
+          <div class="p-4 md:p-6 flex flex-col flex-grow">
+            <h4 
+              :id="`report-title-${report.year}`"
+              class="font-heading font-bold text-lg md:text-xl text-secondary mb-3 group-hover:text-primary transition-colors report-title"
+            >
               {{ report.title }}
             </h4>
             
-            <p class="text-text-secondary font-body text-sm mb-6 leading-relaxed report-description">
+            <p class="text-text-secondary font-body text-sm mb-4 md:mb-6 leading-relaxed report-description">
               {{ report.description }}
             </p>
             
             <!-- Highlights principali -->
-            <div class="report-highlights-container mb-6">
-              <ul class="space-y-3">
+            <div class="report-highlights-container mb-4 md:mb-6">
+              <ul class="space-y-2 md:space-y-3" role="list">
                 <li 
                   v-for="(highlight, index) in report.highlights" 
                   :key="index"
                   class="text-sm text-neutral-700 flex items-start bg-light rounded-lg p-2"
                 >
-                  <CheckCircleIcon class="w-5 h-5 text-primary mr-3 flex-shrink-0" />
+                  <CheckCircleIcon class="w-5 h-5 text-primary mr-3 flex-shrink-0" aria-hidden="true" />
                   <span class="flex-1 font-body">{{ highlight }}</span>
                 </li>
               </ul>
@@ -76,28 +86,30 @@
             <!-- Pulsante download con brand style -->
             <button
               @click="downloadReport(report.year)"
-              class="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white font-body font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-md hover:shadow-lg flex items-center justify-center space-x-2"
+              @keydown.enter="downloadReport(report.year)"
+              class="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white font-body font-bold py-3 md:py-4 px-4 md:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 min-h-[44px]"
+              :aria-label="`Scarica il bilancio di sostenibilità ${report.year} in formato PDF`"
             >
-              <ArrowDownTrayIcon class="w-5 h-5" />
+              <ArrowDownTrayIcon class="w-5 h-5" aria-hidden="true" />
               <span>Scarica Report PDF</span>
             </button>
             
             <!-- Info aggiuntive -->
-            <div class="mt-4 text-center text-xs text-text-secondary font-body flex items-center justify-center space-x-2">
-              <DocumentTextIcon class="w-4 h-4" />
+            <div class="mt-3 md:mt-4 text-center text-xs text-text-secondary font-body flex items-center justify-center space-x-2">
+              <DocumentTextIcon class="w-4 h-4" aria-hidden="true" />
               <span>PDF • {{ report.pages }} pagine • {{ report.size }}</span>
             </div>
           </div>
-        </div>
+        </article>
       </div>
       
       <!-- Messaggio informativo -->
-      <div class="mt-12 text-center">
-        <div class="inline-block bg-light border-2 border-primary rounded-xl p-6 max-w-2xl">
-          <p class="text-neutral-700 font-body leading-relaxed">
+      <div class="mt-8 md:mt-12 text-center">
+        <div class="inline-block bg-light border-2 border-primary rounded-xl p-4 md:p-6 max-w-2xl">
+          <p class="text-neutral-700 font-body leading-relaxed text-sm md:text-base">
             <strong class="text-primary font-bold">Trasparenza totale:</strong> I report sono disponibili in formato PDF. 
             Per approfondimenti o richieste specifiche sui contenuti, 
-            <a href="#contatti" class="text-primary hover:underline font-bold">contattaci</a>.
+            <a href="#contatti" class="text-primary hover:underline font-bold focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded">contattaci</a>.
           </p>
         </div>
       </div>
@@ -189,10 +201,25 @@ const downloadReport = (year) => {
       
       // Messaggio di successo
       console.log(`[SUCCESS] Download avviato: Bilancio ${year}`)
+      
+      // Annuncia ai screen reader
+      announceToScreenReader(`Download del bilancio ${year} avviato`)
     } catch (error) {
       console.warn('[WARNING] File non trovato. Assicurarsi che i PDF siano nella cartella /public/reports/')
+      announceToScreenReader(`Errore durante il download del bilancio ${year}`)
       // In produzione, mostrare un toast/notification elegante
     }
+  }
+}
+
+// Funzione per annunciare ai screen reader
+const announceToScreenReader = (message) => {
+  const announcer = document.getElementById('announcements')
+  if (announcer) {
+    announcer.textContent = message
+    setTimeout(() => {
+      announcer.textContent = ''
+    }, 1000)
   }
 }
 
@@ -207,6 +234,17 @@ const alignReportHeights = () => {
     const titles = document.querySelectorAll('.report-title')
     const descriptions = document.querySelectorAll('.report-description')
     const highlightsContainers = document.querySelectorAll('.report-highlights-container')
+    
+    // Reset delle altezze per ricalcolo
+    titles.forEach(title => {
+      title.style.minHeight = 'auto'
+    })
+    descriptions.forEach(desc => {
+      desc.style.minHeight = 'auto'
+    })
+    highlightsContainers.forEach(container => {
+      container.style.minHeight = 'auto'
+    })
     
     // Calcola l'altezza massima per ogni tipo di elemento
     let maxTitleHeight = 0
@@ -247,6 +285,9 @@ const alignReportHeights = () => {
 onMounted(() => {
   alignReportHeights()
   window.addEventListener('resize', alignReportHeights)
+  
+  // Delay per assicurarsi che le immagini siano caricate
+  setTimeout(alignReportHeights, 100)
 })
 
 // Cleanup listener quando il componente viene smontato
@@ -259,6 +300,7 @@ onUnmounted(() => {
 /* ============================================= */
 /* Stili ReportSection - Brand CAVIRO */
 /* Pattern di sfondo e animazioni card */
+/* Accessibilità AAA e Responsive */
 /* ============================================= */
 
 /* Pattern di sfondo per report section */
@@ -279,7 +321,7 @@ onUnmounted(() => {
   }
 }
 
-.grid > div {
+.grid > article {
   animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;
 }
@@ -293,4 +335,28 @@ onUnmounted(() => {
 .transition-all {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  .grid {
+    gap: 1rem;
+  }
+  
+  article {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Rispetta le preferenze di riduzione movimento */
+@media (prefers-reduced-motion: reduce) {
+  .grid > article {
+    animation: none;
+    opacity: 1;
+  }
+  
+  .transition-all {
+    transition: none;
+  }
+}
 </style>
+
