@@ -1,4 +1,4 @@
-# 🍇 Gruppo CAVIRO - Economia Circolare & Sostenibilità
+# Gruppo CAVIRO - Economia Circolare & Sostenibilità
 
 **Sito Istituzionale Corporate**  
 **Versione**: 2.0 (Refactoring Brand Completo)  
@@ -6,7 +6,7 @@
 
 ---
 
-## 📖 Descrizione Progetto
+## Descrizione Progetto
 
 Sito web istituzionale del **Gruppo CAVIRO**, la più grande cooperativa vitivinicola italiana (35.000 viticoltori soci), leader nell'**economia circolare** applicata al settore vitivinicolo.
 
@@ -17,7 +17,7 @@ Il sito presenta:
 - Bilanci di Sostenibilità scaricabili
 - Form di contatto e informazioni
 
-### 🎯 Obiettivi del Sito
+### Obiettivi del Sito
 
 1. **Comunicare** l'impegno per la sostenibilità e l'economia circolare
 2. **Trasparenza**: Bilanci di sostenibilità pubblici e scaricabili
@@ -26,7 +26,7 @@ Il sito presenta:
 
 ---
 
-## 🛠️ Stack Tecnologico
+## Stack Tecnologico
 
 - **Framework**: [Vue 3](https://vuejs.org/) (Composition API)
 - **Build Tool**: [Vite 5](https://vitejs.dev/)
@@ -47,7 +47,7 @@ Il sito presenta:
 
 ---
 
-## 🚀 Installazione e Utilizzo
+##  Installazione e Utilizzo
 
 ### Prerequisiti
 
@@ -68,15 +68,15 @@ npm install
 ### Comandi Disponibili
 
 ```bash
-# 🔥 Server di sviluppo (con hot-reload)
+#  Server di sviluppo (con hot-reload)
 npm run dev
 # Apri browser su http://localhost:5000
 
-# 📦 Build per produzione
+#  Build per produzione
 npm run build
 # Output in cartella dist/
 
-# 👀 Preview build produzione
+#  Preview build produzione
 npm run preview
 ```
 
@@ -112,7 +112,7 @@ project-work-sostenibilita/
 
 ---
 
-## 🎨 Brand Identity
+##  Brand Identity
 
 ### Palette Colori
 
@@ -135,7 +135,7 @@ Font caricati da Google Fonts con preconnect per performance ottimale.
 
 ---
 
-## 📋 Componenti Principali
+##  Componenti Principali
 
 ### 1. Header
 - Logo CAVIRO
@@ -180,7 +180,7 @@ Font caricati da Google Fonts con preconnect per performance ottimale.
 
 ---
 
-## 📱 Responsive Design
+##  Responsive Design
 
 Il sito è **mobile-first** con breakpoints Tailwind:
 
@@ -198,19 +198,19 @@ Il sito è **mobile-first** con breakpoints Tailwind:
 
 ---
 
-## ♿ Accessibilità (A11Y)
+##  Accessibilità (A11Y)
 
-- ✅ HTML semantico (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`)
-- ✅ ARIA labels su elementi interattivi
-- ✅ Contrasto colori WCAG AA compliant
-- ✅ Focus states visibili (ring-primary)
-- ✅ Smooth scroll per anchor links
-- ✅ Form labels associati correttamente
-- ✅ Alt text su immagini (da completare con immagini reali)
+-  HTML semantico (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`)
+-  ARIA labels su elementi interattivi
+-  Contrasto colori WCAG AA compliant
+-  Focus states visibili (ring-primary)
+-  Smooth scroll per anchor links
+-  Form labels associati correttamente
+-  Alt text su immagini (da completare con immagini reali)
 
 ---
 
-## 🔍 SEO
+##  SEO
 
 ### Meta Tags Implementati
 
@@ -233,7 +233,7 @@ Il sito è **mobile-first** con breakpoints Tailwind:
 
 ---
 
-## 🚀 Deploy
+##  Deploy
 
 ### Build Produzione
 
@@ -258,7 +258,7 @@ VITE_GA_TRACKING_ID=UA-XXXXXXXXX-X
 
 ---
 
-## 📦 Asset da Aggiungere
+##  Asset da Aggiungere
 
 ### Immagini Mancanti
 
@@ -278,7 +278,7 @@ Caricare in `/public/reports/`:
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Test Manuali
 
@@ -299,7 +299,7 @@ Obiettivo **Lighthouse score** (da verificare post-deploy):
 
 ---
 
-## 📚 Documentazione Aggiuntiva
+##  Documentazione Aggiuntiva
 
 - **CHANGELOG.md**: Changelog completo del refactoring brand
 - **BRAND_GUIDELINES.md**: Linee guida dettagliate colori, font, componenti
@@ -307,7 +307,7 @@ Obiettivo **Lighthouse score** (da verificare post-deploy):
 
 ---
 
-## 🤝 Contribuire
+##  Contribuire
 
 ### Setup Sviluppo
 
@@ -346,7 +346,7 @@ chore: task manutenzione (build, config)
 
 ---
 
-## 📞 Supporto e Contatti
+##  Supporto e Contatti
 
 ### Team Tecnico
 
@@ -362,7 +362,7 @@ chore: task manutenzione (build, config)
 
 ---
 
-## 📄 Licenza
+##  Licenza
 
 © 2025 Gruppo CAVIRO. Tutti i diritti riservati.  
 P.IVA 01025950397
@@ -372,7 +372,7 @@ P.IVA 01025950397
 
 ---
 
-## 🏆 Credits
+##  Credits
 
 - **Design & Development**: Team CAVIRO Digital
 - **Brand Manual**: Ufficio Marketing CAVIRO
@@ -381,23 +381,23 @@ P.IVA 01025950397
 
 ---
 
-## 🌟 Changelog
+##  Changelog
 
 ### v2.0 (Novembre 2025) - Refactoring Brand Completo
 
-✅ Applicati colori brand Pantone P 7645C e P 209C  
-✅ Integrati font Merriweather e Lato  
-✅ Contenuti autentici Gruppo CAVIRO  
-✅ Timeline storica 1963-2024  
-✅ Statistiche reali sostenibilità  
-✅ Responsive design ottimizzato  
-✅ Accessibilità WCAG AA  
-✅ SEO meta tags completi  
+ Applicati colori brand Pantone P 7645C e P 209C  
+ Integrati font Merriweather e Lato  
+ Contenuti autentici Gruppo CAVIRO  
+ Timeline storica 1963-2024  
+ Statistiche reali sostenibilità  
+ Responsive design ottimizzato  
+ Accessibilità WCAG AA  
+ SEO meta tags completi  
 
 Vedi [CHANGELOG.md](./CHANGELOG.md) per dettagli completi.
 
 ---
 
-**🍇 Costruiamo insieme un futuro sostenibile attraverso l'economia circolare 🌍**
+** Costruiamo insieme un futuro sostenibile attraverso l'economia circolare **
 
 *Gruppo CAVIRO - Dal 1963 con passione*
